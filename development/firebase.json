@@ -1,0 +1,33 @@
+{
+  "hosting": {
+    "predeploy": "printf \"\\033[1;31m\\nNOT ALLOWED\\033[0m\"; node -e \"console.error(\\': You cannot deploy website from development channel.\\nPlease push or merge your commits to origin/main for auto-deployment\\nRead the README for more info on deployment.\\'); process.exit(1);\"",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+  },
+  "database": [
+    {
+      "target": "default",
+      "rules": "database.rules.json"
+    }
+  ],
+  "emulators": {
+    "database": {
+      "host": "0.0.0.0",
+      "port": 9000
+    },
+    "hosting": {
+      "host": "0.0.0.0",
+      "port": 5000
+    },
+    "ui": {
+      "host": "0.0.0.0",
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "dev": "sendsecretmsg"
+  },
+  "targets": {
+    "sendsecretmsg": {
+      "database": {
+        "default": [
+          "sendsecretmsg"
+        ]
+      }
+    }
+  }
+}

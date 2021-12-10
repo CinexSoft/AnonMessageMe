@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "preview": {
+      ".read": true,
+      ".write": true
+    },
+    "production": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}

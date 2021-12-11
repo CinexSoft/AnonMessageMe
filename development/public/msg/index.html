@@ -59,10 +59,11 @@
     </style>
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders / buttons
-         1. ph-recipient-firstname - Holds recipient first name.
-         2. ph-recipient-fullname - Holds recipient full name.
-         3. ph-textarea-msg - Holds the message to be sent.
-         4. btn-send - Button to send message.
+         1. ph-font-recipient-firstname - Holds recipient first name.
+         2. ph-font-recipient-fullname - Holds recipient full name.
+         3. ph-p-recipients-msg - A message by the recipient.
+         4. ph-textarea-msg - Holds the message to be sent.
+         5. btn-send - Button to send message.
     -->
 </head>
 <body>
@@ -75,10 +76,10 @@
         <div class="vert-layout send-msg">
             <div class="vert-layout">
                 <h1 class="noselect">
-                    Message <font class="placeholder" id="ph-recipient-firstname">Sonu</font>!
+                    Message <font class="placeholder" id="ph-font-recipient-firstname">Sonu</font>!
                 </h1>
-                <p class="noselect info">
-                    Send a message to <b><font class="placeholder" id="ph-recipient-fullname">Sonu Dey</font></b>.<br>
+                <p class="noselect info placeholder" id="ph-p-recipients-msg" >
+                    Send a message to <b><font class="placeholder" id="ph-font-recipient-fullname">Sonu Dey</font></b>.<br>
                     The recipient will not know who sent it!
                 </p>
                 <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>

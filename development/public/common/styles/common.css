@@ -1,26 +1,44 @@
 * {
-    font-family: Helvetica, sans-serif;
-    font-size: 110%;
+    margin: 0;
+    font-family: "Helvetica", sans-serif;
+    font-size: 100%;
     --prim-fgcolor: #101010;
-    --sec-fgcolor: #202020;
-    --tert-fgcolor: #303030;
-    --prim-bgcolor: #fdfdfd;
-    --sec-bgcolor: pink;
-    --tert-bgcolor: magenta;
+    --sec-fgcolor: #dedede;
+    --tert-fgcolor: #dedede;
+    --dark-fgcolor: #dedede;
+    --prim-bgcolor: #fbcbc9;
+    --sec-bgcolor: #be1558;
+    --tert-bgcolor: #e75874;
+    --dark-bgcolor: #322514;
     --link-color: dodgerblue;
-    --shadow-color: #555555;
+    --shadow-color: #777777;
     --border-color: #ff00ff;
-    --dark-bgcolor: #777777;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    width: 0;
 }
 header {
-    padding: 10px;
+    padding: 20px 10px;
+    position: fixed;
+    top: 0;
+    display: flex;
     width: calc(100% - 20px);
+    color: var(--sec-fgcolor);
     background-color: var(--sec-bgcolor);
-    box-shadow: 0px 1px 10px 10px var(--shadow-color);
+    box-shadow: 0.5px 0.5px 2px 0px var(--dark-bgcolor);
 }
 footer {
     padding: 10px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
     width: calc(100% - 20px);
+    height: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--dark-fgcolor);
     background-color: var(--dark-bgcolor);
 }
 a {
@@ -29,31 +47,36 @@ a {
     cursor: pointer;
 }
 p.message {
-    width: calc(100% - 20px);
+    margin: 10px auto;
     padding: 10px;
-    border: 1px solid var(--border-color);
+    width: calc(100% - 20px);
+    white-space: pre-wrap;
     border-radius: 10px;
+    box-shadow: 0.5px 0.5px 2px 0px var(--shadow-color);
 }
 button {
-    width: calc(70% - 40px);
-    margin: auto;
+    margin: 10px auto;
     padding: 10px 20px;
+    width: calc(70% - 40px);
+    border: 0px;
     border-radius: 10px;
-    background-color: var(--sec-bgcolor);
+    color: var(--sec-fgcolor);
+    background-color: var(--dark-bgcolor);
     transition-duration: 200ms;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
 }
 button:hover {
     cursor: pointer;
-    font-size: 0.9rem;
 }
 button:active {
-    font-size: 1rem;
-    background-color: var(--tert-bgcolor)
-    transform: scale(0.9);
+    color: var(--tert-fgcolor);
+    // background-color: var(--sec-bgcolor);
+    transform: scale(0.95);
 }
 div {
-    width: calc(100% - 20px);
     padding: 10px;
+    width: calc(100% - 20px);
     border-radius: 10px;
 }
 div.horz-layout {

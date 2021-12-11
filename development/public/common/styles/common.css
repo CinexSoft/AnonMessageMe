@@ -40,7 +40,7 @@
          -moz-user-select: initial; /* Old versions of Firefox */
           -ms-user-select: initial; /* Internet Explorer/Edge */
               user-select: initial; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+                                       supported by Chrome, Edge, Opera and Firefox */
 }
 ::-webkit-scrollbar {
     width: 0;

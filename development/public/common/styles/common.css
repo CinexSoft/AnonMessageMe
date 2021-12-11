@@ -1,7 +1,7 @@
 * {
     margin: 0;
     font-family: "Helvetica", sans-serif;
-    font-size: 100%;
+    font-size: 99%;
     /* color palette taken from https://99designs.com/profiles/martislupus/designs/247401 */
     --light-fgcolor: #303030;
     --light-bgcolor: #fdfdfd;
@@ -112,4 +112,9 @@ div.vert-scroll {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+}
+@media only screen and (min-width: 400px) {
+    * {
+        font-size: 100%;
+    }
 }

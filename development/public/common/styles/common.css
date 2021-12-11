@@ -1,7 +1,7 @@
 * {
     margin: 0;
     font-family: "Helvetica", sans-serif;
-    font-size: 97.5%;
+    font-size: 99%;
     /* color palette taken from https://99designs.com/profiles/martislupus/designs/247401 */
     --light-fgcolor: #303030;
     --light-bgcolor: #fdfdfd;
@@ -21,11 +21,6 @@
     --border-color: #322514;
     /* remove scrollbars */
     scrollbar-width: none;
-}
-@media only screen and (min-width: 400px) {
-    * {
-        font-size: 100%;
-    }
 }
 .noselect {
     /* disable user text selection */
@@ -117,4 +112,9 @@ div.vert-scroll {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+}
+@media only screen and (min-width: 400px) {
+    * {
+        font-size: 100%;
+    }
 }

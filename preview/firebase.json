@@ -7,7 +7,7 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
-    "trailingSlash": false,
+    "trailingSlash": false
   },
   "database": {
     "rules": "database.rules.json"

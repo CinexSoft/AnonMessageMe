@@ -2,13 +2,16 @@
     margin: 0;
     font-family: "Helvetica", sans-serif;
     font-size: 100%;
+    /* color palette taken from https://99designs.com/profiles/martislupus/designs/247401 */
+    --light-fgcolor: #303030;
+    --light-bgcolor: #fdfdfd;
     --prim-fgcolor: #101010;
-    --sec-fgcolor: #dedede;
-    --tert-fgcolor: #dedede;
-    --dark-fgcolor: #dedede;
     --prim-bgcolor: #fbcbc9;
+    --sec-fgcolor: #dedede;
     --sec-bgcolor: #be1558;
+    --tert-fgcolor: #dedede;
     --tert-bgcolor: #e75874;
+    --dark-fgcolor: #dedede;
     --dark-bgcolor: #322514;
     --link-color: dodgerblue;
     --shadow-color: #777777;

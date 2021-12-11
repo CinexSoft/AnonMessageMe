@@ -1,0 +1,80 @@
+* {
+    font-family: Helvetica, sans-serif;
+    font-size: 110%;
+    --prim-fgcolor: #101010;
+    --sec-fgcolor: #202020;
+    --tert-fgcolor: #303030;
+    --prim-bgcolor: #fdfdfd;
+    --sec-bgcolor: pink;
+    --tert-bgcolor: magenta;
+    --link-color: dodgerblue;
+    --shadow-color: #555555;
+    --border-color: #ff00ff;
+    --dark-bgcolor: #777777;
+}
+header {
+    padding: 10px;
+    width: calc(100% - 20px);
+    background-color: var(--sec-bgcolor);
+    box-shadow: 0px 1px 10px 10px var(--shadow-color);
+}
+footer {
+    padding: 10px;
+    width: calc(100% - 20px);
+    background-color: var(--dark-bgcolor);
+}
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+p.message {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+button {
+    width: calc(70% - 40px);
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--sec-bgcolor);
+    transition-duration: 200ms;
+}
+button:hover {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+button:active {
+    font-size: 1rem;
+    background-color: var(--tert-bgcolor)
+    transform: scale(0.9);
+}
+div {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+}
+div.horz-layout {
+    display: flex;
+    flex-direction: row;
+}
+div.vert-layout {
+    display: flex;
+    flex-direction: column;
+}
+div.horz-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+div.vert-scroll {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+div.card {
+    padding: 20px;
+    border-radius: 10px;
+}

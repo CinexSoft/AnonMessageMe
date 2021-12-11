@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    font-family: "Helvetica", sans-serif;
+    font-size: 100%;
+    /* color palette taken from https://99designs.com/profiles/martislupus/designs/247401 */
+    --light-fgcolor: #303030;
+    --light-bgcolor: #fdfdfd;
+    --prim-fgcolor: #101010;
+    --prim-bgcolor: #fbcbc9;
+    --sec-fgcolor: #dedede;
+    --sec-bgcolor: #e75874;
+    --tert-fgcolor: #dedede;
+    --tert-bgcolor: #be1558;
+    --dark-fgcolor: #dedede;
+    --dark-bgcolor: #322514;
+    --link-color: #1B84EA;
+    --btn-fgcolor: #dedede;
+    --btn-bgcolor: #322514;
+    --btn-active-bgcolor: #4e3b24;
+    --shadow-color: #322514;
+    --border-color: #322514;
+    /* remove scrollbars */
+    scrollbar-width: none;
+}
+.noselect {
+    /* disable user text selection */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+.select {
+    /* disable user text selection */
+    -webkit-touch-callout: initial; /* iOS Safari */
+      -webkit-user-select: initial; /* Safari */
+       -khtml-user-select: initial; /* Konqueror HTML */
+         -moz-user-select: initial; /* Old versions of Firefox */
+          -ms-user-select: initial; /* Internet Explorer/Edge */
+              user-select: initial; /* Non-prefixed version, currently
+                                       supported by Chrome, Edge, Opera and Firefox */
+}
+::-webkit-scrollbar {
+    width: 0;
+}
+header {
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 30px);
+    color: var(--tert-fgcolor);
+    background-color: var(--tert-bgcolor);
+    box-shadow: 0px -4px 10px 0px var(--shadow-color);
+}
+footer {
+    margin-top: auto;
+    padding: 20px;
+    display: flex;
+    width: calc(100% - 40px);
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--dark-fgcolor);
+    background-color: var(--dark-bgcolor);
+}
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+button {
+    margin: 10px auto;
+    padding: 10px 30px;
+    border: 0px;
+    border-radius: 10px;
+    color: var(--btn-fgcolor);
+    background-color: var(--btn-bgcolor);
+    cursor: pointer;
+    transition-duration: 150ms;
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+}
+button:hover {
+    
+}
+button:active {
+    background-color: var(--btn-active-bgcolor);
+}
+div {
+    padding: 10px;
+    width: calc(100% - 20px);
+    border-radius: 10px;
+}
+div.horz-layout {
+    display: flex;
+    flex-direction: row;
+}
+div.vert-layout {
+    display: flex;
+    flex-direction: column;
+}
+div.horz-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+div.vert-scroll {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}

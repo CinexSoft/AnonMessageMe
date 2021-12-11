@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="manifest" href="/a2hs.webmanifest">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+    <meta name="theme-color" content="#be1558">
+    <meta name="msapplication-navbutton-color" content="#be1558">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#be1558">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <title>Home</title>
+    <link rel="stylesheet" href="/common/styles/common.css"/>
+    <style>
+        div.root {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            border-radius: 0;
+        }
+        div.root header {
+            
+        }
+        div.root header h2 {
+            font-size: 1.5rem;
+        }
+        div.root footer {
+            
+        }
+        div.root div.profile {
+            margin-top: calc(1.5rem + 30px);
+            justify-content: center;
+            align-items: center;
+            border-radius: 0;
+            color: var(--tert-fgcolor);
+            background-color: var(--tert-bgcolor);
+            box-shadow: 0.5px 0.5px 2px 0px var(--shadow-color);
+        }
+        div.root div.profile div {
+            max-width: 400px;
+            justify-content: center;
+            align-items: center;
+        }
+        div.root div.profile div h1 {
+            margin: 10px;
+            font-size: 2rem;
+        }
+        div.root div.profile div p.info {
+            margin: 10px;
+            text-align: center;
+        }
+        div.root div.profile div p.link {
+            margin: 10px;
+            padding: 7px 10px;
+            border-radius: 10px;
+            color: var(--prim-fgcolor);
+            background-color: var(--prim-bgcolor);
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+        div.root div.messages-root {
+            padding: 20px;
+            width: calc(100% - 40px);
+            align-items: center;
+            border-radius: 0;
+            color: var(--light-fgcolor);
+            background-color: var(--light-bgcolor);
+        }
+        div.root div.messages-root h2 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        div.root div.messages-root div.messages {
+            
+        } 
+        div.root div.messages-root div.messages p.message {
+            margin: 10px auto;
+            padding: 10px;
+            width: calc(100% - 20px);
+            max-width: 400px;
+            align-items: center;
+            color: var(--prim-fgcolor);
+            background-color: var(--prim-bgcolor);
+            white-space: pre-wrap;
+            border-radius: 10px;
+            // box-shadow: 0.5px 0.5px 2px 0px var(--shadow-color);
+        }
+        @media only screen and (min-width: 460px) {
+            div.root div.messages-root div.messages {
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+            div.root div.messages-root div.messages p.message {
+                width: calc(100% - 40px);
+                max-width: calc(100% - 40px);
+                margin: 10px;
+            }
+        }
+    </style>
+    <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
+         LIST of placeholders
+         1. ph-your-name - Holds name of the user who creates and copies the link.
+         2. ph-your-messages - The div that holds all new messages, in descending order.
+         3. ph-msg-xxxx - xxxx... represent an ID. Holds the message sent by some other user.
+    -->
+</head>
+<body>
+    <div class="vert-layout root">
+        <header>
+            <h2 class="noselect">
+                SendSecretMsg
+            </h2>
+        </header>
+        <div class="vert-layout profile">
+            <div class="vert-layout">
+                <h1 class="noselect">
+                    Hi <font class="placeholder" id="ph-your-name">Sonu</font>! 👋
+                </h1>
+                <p class="noselect info">
+                    Copy the following link and share it with your friends.
+                    Your friends can then send you a secret message.
+                </p>
+                <p class="noselect link">
+                    <a id="ph-your-link" href="https://sendsecretmsg.web.app/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
+                </p>
+                <button class="noselect" id="btn-copy-link">Copy link</button>
+            </div>
+        </div>
+        <div class="vert-layout messages-root">
+            <h2 class="noselect">
+                Your Messages
+            </h2>
+            <div class="vert-layout messages" id="ph-your-messages">
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 22!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 21!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 20!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 19!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 18!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 17!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 16!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 15!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 14!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 13!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 12!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 11!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 10!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 9!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 8!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 7!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 6!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 5!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 4!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 3!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 2!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+                <p class="message placeholder" id="ph-msg-0000">
+                    Hi 1!
+                    This is another demo message!
+                    Hope you are doing well.
+                </p>
+            </div>
+        </div>
+        <footer>
+            <p class="noselect">
+                Send feedback to
+                <a href="mailto:cinexsoft@gmail.com">cinexsoft@gmail.com</a>
+            </p>
+        </footer>
+    </div>
+    <script src="/home/script.js"></script>
+</body>
+</html>

@@ -1,12 +1,16 @@
 {
   "rules": {
     "preview": {
-      ".read": true,
-      ".write": true
+      "$sid": {
+        ".read": "auth != null && auth.uid == $sid",
+        ".write": true
+      }
     },
     "production": {
-      ".read": true,
-      ".write": true
+      "$sid": {
+        ".read": "auth != null && auth.uid == $sid",
+        ".write": true
+      }
     }
   }
 }

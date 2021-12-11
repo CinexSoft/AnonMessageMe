@@ -7,7 +7,14 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/home",
+        "type": 301
+      }
+    ]
   },
   "database": {
     "rules": "database.rules.json"

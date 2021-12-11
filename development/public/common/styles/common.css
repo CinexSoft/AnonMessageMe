@@ -16,7 +16,7 @@
     --link-color: #1B84EA;
     --btn-fgcolor: #dedede;
     --btn-bgcolor: #322514;
-    --btn-active-bgcolor: #45331c;
+    --btn-active-bgcolor: #4e3b24;
     --shadow-color: #322514;
     --border-color: #322514;
     /* remove scrollbars */
@@ -30,7 +30,7 @@
          -moz-user-select: none; /* Old versions of Firefox */
           -ms-user-select: none; /* Internet Explorer/Edge */
               user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
 .select {
     /* disable user text selection */
@@ -58,10 +58,9 @@ header {
 }
 footer {
     margin-top: auto;
-    padding: 10px;
+    padding: 20px;
     display: flex;
-    width: calc(100% - 20px);
-    height: 1rem;
+    width: calc(100% - 40px);
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
@@ -75,18 +74,18 @@ a {
 }
 button {
     margin: 10px auto;
-    padding: 10px 20px;
-    width: calc(70% - 40px);
+    padding: 10px 30px;
     border: 0px;
     border-radius: 10px;
     color: var(--btn-fgcolor);
     background-color: var(--btn-bgcolor);
-    transition-duration: 200ms;
+    cursor: pointer;
+    transition-duration: 150ms;
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent;
 }
 button:hover {
-    cursor: pointer;
+    
 }
 button:active {
     background-color: var(--btn-active-bgcolor);
@@ -113,8 +112,4 @@ div.vert-scroll {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-}
-div.card {
-    padding: 20px;
-    border-radius: 10px;
 }

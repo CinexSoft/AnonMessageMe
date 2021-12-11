@@ -17,10 +17,14 @@
     --btn-fgcolor: #dedede;
     --btn-bgcolor: #322514;
     --btn-active-bgcolor: #4e3b24;
-    --shadow-color: #322514;
+    --light-shadow-color: #999999;
+    --dark-shadow-color: #423524;
     --border-color: #322514;
+    --placeholder-fgcolor: #6F5F4A;
     /* remove scrollbars */
     scrollbar-width: none;
+    /* remove outline box */
+    outline: none;
 }
 .noselect {
     /* disable user text selection */
@@ -54,7 +58,9 @@ header {
     width: calc(100% - 30px);
     color: var(--tert-fgcolor);
     background-color: var(--tert-bgcolor);
-    box-shadow: 0px -4px 10px 0px var(--shadow-color);
+    box-shadow: 0px -4px 10px 0px var(--dark-shadow-color);
+    color: #ffffff;
+    opacity: 0.9;
 }
 footer {
     margin-top: auto;
@@ -72,9 +78,39 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+p.info {
+    margin: 10px;
+    text-align: center;
+    line-height: 1.3rem;
+}
+input.text {
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: calc(90% - 40px);
+    border: 0px;
+    border-radius: 10px;
+    color: var(--prim-fgcolor);
+    background-color: var(--prim-bgcolor);
+}
+input.text::placeholder {
+    color: var(--placeholder-fgcolor);
+}
+textarea.msg {
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: calc(90% - 40px);
+    height: 70px;
+    border: 0px;
+    border-radius: 10px;
+    color: var(--prim-fgcolor);
+    background-color: var(--prim-bgcolor);
+}
+textarea.msg::placeholder {
+    color: var(--placeholder-fgcolor);
+}
 button {
     margin: 10px auto;
-    padding: 10px 30px;
+    padding: 10px 50px;
     border: 0px;
     border-radius: 10px;
     color: var(--btn-fgcolor);

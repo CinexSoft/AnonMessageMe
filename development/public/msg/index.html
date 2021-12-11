@@ -17,8 +17,81 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <title>Send Secret Message</title>
     <link rel="stylesheet" href="/common/styles/common.css"/>
+    <style>
+        div.root {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            border-radius: 0;
+        }
+        div.root header {
+            
+        }
+        div.root header h2 {
+            font-size: 1.5rem;
+        }
+        div.root footer {
+            
+        }
+        div.root div.send-msg {
+            padding-top: calc(1.5rem + 40px);
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0;
+            color: var(--prim-fgcolor);
+            background-color: var(--prim-bgcolor);
+        }
+        div.root div.send-msg div {
+            max-width: 360px;
+            justify-content: center;
+            align-items: center;
+            color: var(--tert-fgcolor);
+            background-color: var(--tert-bgcolor);
+            box-shadow: 0px 0px 7.5px 0px var(--dark-shadow-color);
+        }
+        div.root div.send-msg div h1 {
+            margin: 10px;
+            font-size: 2rem;
+        }
+    </style>
+    <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
+         LIST of placeholders / buttons
+         1. ph-recipient-firstname - Holds recipient first name.
+         2. ph-recipient-fullname - Holds recipient full name.
+         3. ph-textarea-msg - Holds the message to be sent.
+         4. btn-send - Button to send message.
+    -->
 </head>
 <body>
+    <div class="vert-layout root">
+        <header>
+            <h2 class="noselect">
+                SendSecretMsg
+            </h2>
+        </header>
+        <div class="vert-layout send-msg">
+            <div class="vert-layout">
+                <h1 class="noselect">
+                    Message <font class="placeholder" id="ph-recipient-firstname">Sonu</font>!
+                </h1>
+                <p class="noselect info">
+                    Send a message to <b><font class="placeholder" id="ph-recipient-fullname">Sonu Dey</font></b>.<br>
+                    The recipient will not know who sent it!
+                </p>
+                <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>
+                <button class="noselect placeholder" id="btn-send">Send</button>
+            </div>
+        </div>
+        <footer>
+            <p class="noselect">
+                Send feedback to
+                <a href="mailto:cinexsoft@gmail.com">cinexsoft@gmail.com</a>
+            </p>
+        </footer>
+    </div>
     <script type="module" src="/msg/script.js"></script>
 </body>
 </html>

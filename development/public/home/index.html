@@ -36,7 +36,7 @@
             
         }
         div.root div.profile {
-            margin-top: calc(1.5rem + 30px);
+            padding-top: calc(1.5rem + 40px);
             justify-content: center;
             align-items: center;
             border-radius: 0;
@@ -51,10 +51,6 @@
         div.root div.profile div h1 {
             margin: 10px;
             font-size: 2rem;
-        }
-        div.root div.profile div p.info {
-            margin: 10px;
-            text-align: center;
         }
         div.root div.profile div p.link {
             margin: 10px;
@@ -90,7 +86,7 @@
             background-color: var(--prim-bgcolor);
             white-space: pre-wrap;
             border-radius: 10px;
-            // box-shadow: 0.5px 0.5px 2px 0px var(--shadow-color);
+            box-shadow: 0px 0px 5px 0px var(--light-shadow-color);
         }
         @media only screen and (min-width: 460px) {
             div.root div.messages-root div.messages {
@@ -103,12 +99,29 @@
                 margin: 10px;
             }
         }
+        @keyframes shrink {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0.95);
+            }
+        }
+        @keyframes unshrink {
+            0% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders
          1. ph-your-name - Holds name of the user who creates and copies the link.
          2. ph-your-messages - The div that holds all new messages, in descending order.
-         3. ph-msg-xxxx - xxxx... represent an ID. Holds the message sent by some other user.
+         3. ph-msg-xxxx - xxxx... - represent an ID. Holds the message sent by some other user.
+         4. btn-copy-link - Copies link to clipboard.
     -->
 </head>
 <body>

@@ -17,8 +17,79 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <title>Register</title>
     <link rel="stylesheet" href="/common/styles/common.css"/>
+    <style>
+        div.root {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            border-radius: 0;
+        }
+        div.root header {
+            
+        }
+        div.root header h2 {
+            font-size: 1.5rem;
+        }
+        div.root footer {
+            
+        }
+        div.root div.register {
+            padding-top: calc(1.5rem + 40px);
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0;
+            color: var(--prim-fgcolor);
+            background-color: var(--prim-bgcolor);
+        }
+        div.root div.register div {
+            max-width: 360px;
+            justify-content: center;
+            align-items: center;
+            color: var(--tert-fgcolor);
+            background-color: var(--tert-bgcolor);
+            box-shadow: 0px 0px 7.5px 0px var(--dark-shadow-color);
+        }
+        div.root div.register div h1 {
+            margin: 10px;
+            font-size: 2rem;
+        }
+    </style>
+    <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
+         LIST of placeholders / buttons
+         1. ph-input-name - Holds name of the user who creates and copies the link.
+         2. btn-submit - Submits the name and generates link.
+    -->
 </head>
 <body>
+    <div class="vert-layout root">
+        <header>
+            <h2 class="noselect">
+                SendSecretMsg
+            </h2>
+        </header>
+        <div class="vert-layout register">
+            <div class="vert-layout">
+                <h1 class="noselect">
+                    Create your link!
+                </h1>
+                <p class="noselect info">
+                    Enter your name to generate your link.<br>
+                    Your friends can then anonymously message you on this site.
+                </p>
+                <input class="text placeholder" id="ph-input-name" type="text" placeholder="Enter your name">
+                <button class="noselect placeholder" id="btn-submit">Submit</button>
+            </div>
+        </div>
+        <footer>
+            <p class="noselect">
+                Send feedback to
+                <a href="mailto:cinexsoft@gmail.com">cinexsoft@gmail.com</a>
+            </p>
+        </footer>
+    </div>
     <script type="module" src="/register/script.js"></script>
 </body>
 </html>

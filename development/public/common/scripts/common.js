@@ -126,12 +126,7 @@ export const copyPlainTxt = (copytext = '') => {
         // do nothing
     }).catch((error) => {
         console.error(`common.js: copyPlainTxt(): ${error}`);
-        if (EXISTS_ANDROID_INTERFACE) {
-            Android.copyToClipboard(copytext);
-            Android.showToast('Text copied!');
-        } else {
-            console.error('common.js: copyPlainTxt():  android interface doesn\'t exist');
-            Dialog.display('alert', 'Oops!', 'Copy text to clipboard failed');
-        }
     });
 }
+
+console.log('module common.js loaded');

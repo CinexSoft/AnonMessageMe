@@ -60,7 +60,8 @@
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders / buttons
          1. ph-input-name - Holds name of the user who creates and copies the link.
-         2. btn-submit - Submits the name and generates link.
+         2. ph-txt-msg - Holds a short message for senders.
+         3. btn-submit - Submits the name and generates link.
     -->
 </head>
 <body>
@@ -80,6 +81,7 @@
                     Your friends can then anonymously message you on this site.
                 </p>
                 <input class="text placeholder" id="ph-input-name" type="text" placeholder="Enter your name">
+                <textarea class="msg placeholder" id="ph-txt-msg" placeholder="Enter a short message for your friends"></textarea>
                 <button class="noselect placeholder" id="btn-submit">Submit</button>
             </div>
         </div>
@@ -90,6 +92,11 @@
             </p>
         </footer>
     </div>
+    <div class="vert-layout SplashScreen noselect" id="SplashScreen-main">
+        <h1 style="visibility: hidden;">SendSecretMsg</h1>
+    </div>
+    <!-- HTML sanitizer -->
+    <script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js"></script>
     <script type="module" src="/register/script.js"></script>
 </body>
 </html>

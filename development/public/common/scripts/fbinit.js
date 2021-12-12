@@ -9,12 +9,12 @@
  * works for each and every webpage.
  */
 
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
 
-export * as FirebaseAuth from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
-export * as FirebaseDB from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
+export * as FirebaseAuth from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+export * as FirebaseDB from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
 
 // firebase init
 // Your web app's Firebase configuration

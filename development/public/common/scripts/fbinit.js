@@ -13,6 +13,9 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
 
+export * as FirebaseAuth from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
+export * as FirebaseDB from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
+
 // firebase init
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional

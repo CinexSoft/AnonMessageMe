@@ -1,12 +1,9 @@
-import { Auth, Database, } from '/common/scripts/fbinit.js';
+import { Auth, Database, FirebaseAuth, FirebaseDB, } from '/common/scripts/fbinit.js';
 import {
     setVariable,
     getVariable,
 } from '/common/scripts/variables.js';
-import * as CommonJS from '/common/scripts/init.js';
-
-import * as FirebaseAuth from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
-import * as FirebaseDB from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
+import * as CommonJS from '/common/scripts/common.js';
 
 const NameInput = document.getElementById('ph-input-name');
 const MessageTxt = document.getElementById('ph-txt-msg');
@@ -76,10 +73,12 @@ const main = function() {
             FirebaseDB.update(FirebaseDB.ref(Database, getVariable('USER_ROOT')), {
                 uid: getVariable('USER_ID'),
                 name: {
-                    firstname: (fullname + ' ').substring(0, fullname.indexOf(' ')),
-                    fullname: fullname,
+                    firstname: CommonJS.encode((fullname + ' ').substring(0, fullname.indexOf(' '))),
+                    fullname: CommonJS.encode(fullname),
                 },
-                message: message,
+                message: CommonJS.encode(message),
+            }).then(() => {
+                console.log('register: uploaded data');
             }).catch((error) => {
                 alert('An error occurred. For details, see console.');
                 console.error('register: ' + error);

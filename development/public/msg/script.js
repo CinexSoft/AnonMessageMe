@@ -1,4 +1,5 @@
-import * as CommonJS from '/common/scripts/init.js';
+import { Auth, Database, FirebaseAuth, FirebaseDB, } from '/common/scripts/fbinit.js';
+import * as CommonJS from '/common/scripts/common.js';
 
 const SplashScreen = document.getElementById('SplashScreen-main');
 

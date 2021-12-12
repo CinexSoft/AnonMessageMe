@@ -129,4 +129,16 @@ export const copyPlainTxt = (copytext = '') => {
     });
 }
 
+/**
+ * Marker function.
+ */
+export const Marker = function() {
+    let mark = 0;
+    return (text = '') => {
+        console.log(`MK ${mark++}: ${text}`);
+    }
+}
+
+export const mark = Marker();
+
 console.log('module common.js loaded');

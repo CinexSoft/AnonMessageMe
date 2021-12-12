@@ -119,9 +119,10 @@
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders
          1. ph-font-your-name - Holds name of the user who creates and copies the link.
-         2. ph-div-your-messages - The div that holds all new messages, in descending order.
-         3. ph-p-msg-xxxx - xxxx... - represent an ID. Holds the message sent by some other user.
-         4. btn-share-link - Copies link to clipboard.
+         2. ph-a-your-link - User link in an anchor tag
+         3. ph-div-your-messages - The div that holds all new messages, in descending order.
+         4. ph-p-msg-xxxx - xxxx... - represent an ID. Holds the message sent by some other user.
+         5. btn-share-link - Copies link to clipboard.
     -->
 </head>
 <body>
@@ -141,7 +142,7 @@
                     Your friends can then send you a secret message.
                 </p>
                 <p class="noselect link">
-                    <a id="ph-your-link" href="https://sendsecretmsg.web.app/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
+                    <a id="ph-a-your-link" href="https://sendsecretmsg.web.app/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
                 </p>
                 <button class="noselect" id="btn-share-link">Share link</button>
             </div>
@@ -270,6 +271,9 @@
             </p>
         </footer>
     </div>
+    <!-- HTML sanitizer -->
+    <script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js"></script>
+    <script type="module" src="/common/scripts/init.js"></script>
     <script type="module" src="/home/script.js"></script>
 </body>
 </html>

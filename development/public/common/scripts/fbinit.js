@@ -1,3 +1,14 @@
+/**
+ * WARNING:
+ * Before making modifications to this file, make absolutely sure that
+ * you've used the functions and their respective flags (if any) properly.
+ * These functions work for almost every webpage, so there are more chances
+ * you've used something incorrectly.
+ *
+ * When making modifications, you also need to test out if the modified code
+ * works for each and every webpage.
+ */
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js';
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
@@ -28,10 +39,9 @@ export const Auth = getAuth(App);
  * database root.
  * Production URLs are sendsecretmsg.web.app and sendsecretmsg.firebaseapp.com
  */
-const ROOT = (!/sendsecretmsg\.web\.app|sendsecretmsg\.firebaseapp\.com/i.test(location.href) ? '/preview' : '/production');
+const RTDB_ROOT = (!/sendsecretmsg\.web\.app|sendsecretmsg\.firebaseapp\.com/i.test(location.href) ? '/preview' : '/production');
 
-export const RTDB_USERS_ROOT = ROOT + '/aa14fdd9-users';
-export const RTDB_SLOGS_ROOT = ROOT + '/b6d6cc89-slogs';
-export const RTDB_CHATS_ROOT = ROOT + '/ce471190-chats';
+export const RTDB_USER_ROOT = RTDB_ROOT + '/userdata/';
+export const RTDB_MSG_ROOT = RTDB_ROOT + '/messages/';
 
 console.log('module firebaseinit.js loaded');

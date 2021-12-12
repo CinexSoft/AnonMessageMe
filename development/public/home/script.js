@@ -14,6 +14,7 @@ const MessagesDiv = document.getElementById('ph-div-your-messages');
 const SplashScreen = document.getElementById('SplashScreen-main');
 
 const loadMessagesToUI = function() {
+    if(!UserMessages || UserMessages == {}) return;
     MessagesDiv.innerHTML = '';
     for (timestamp in UserMessages) {
         MessagesDiv.innerHTML = (
@@ -64,12 +65,10 @@ const main = function() {
             if (!location.href.includes('/register')) location.href = '/register';
             return;
         }
-
         localStorage.setItem('Auth.UID', user.uid);
         setVariable('USER_ID', user.uid);
         setVariable('USER_ROOT', user.uid);
         setVariable('MSG_ROOT', user.uid);
-
         FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('USER_ROOT')), (snapshot) => {
             const data = snapshot.val();
             setVariable('UserData', data);
@@ -79,7 +78,8 @@ const main = function() {
             alert('An error occurred. For details, see console.');
             console.error('home: ' + error);
         });
-
+CommonJS.mark('uid = ' + getVariable('USER_ID'));
+CommonJS.mark('ud = ' + JSON.stringify(getVariable('UserData'), null, 4));
         // load all user messages from DB
         FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('MSG_ROOT')), (snapshot) => {
             const data = snapshot.val();
@@ -89,10 +89,9 @@ const main = function() {
             SplashScreen.style.visibility = 'hidden';
         }, (error) => {
             alert('An error occurred. For details, see console.');
-            console.error('home: ' + error.stack);
+            console.error('home: ' + error);
         });
     });
-
     ShareButton.onclick = async () => {
         // Show share sheet
         try {
@@ -103,7 +102,7 @@ const main = function() {
             });
         } catch (error) {
             alert('An error occurred. For details, see console.');
-            console.error(error.stack);
+            console.error(error);
         }
     }
 }

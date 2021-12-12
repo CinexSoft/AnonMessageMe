@@ -76,17 +76,21 @@
         div.root div.messages-root div.messages {
             padding: 0;
         } 
-        div.root div.messages-root div.messages p.message {
+        div.root div.messages-root div.messages div.message {
             margin: 10px auto;
             padding: 10px;
             width: calc(100% - 20px);
             max-width: 400px;
-            align-items: center;
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
             white-space: pre-wrap;
             border-radius: 10px;
             box-shadow: 0px 0px 5px 0px var(--light-shadow-color);
+        }
+        #ph-div-msg-0000 {
+            height: calc(60vh - 1.5rem - 50px);
+            justify-content: center;
+            align-items: center;
         }
         @media only screen and (min-width: 460px) {
             div.root div.messages-root div.messages {
@@ -115,13 +119,17 @@
                 transform: scale(1);
             }
         }
+        div.SplashScreen {
+            visibility: visible;
+        }
     </style>
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders
-         1. ph-your-name - Holds name of the user who creates and copies the link.
-         2. ph-your-messages - The div that holds all new messages, in descending order.
-         3. ph-msg-xxxx - xxxx... - represent an ID. Holds the message sent by some other user.
-         4. btn-copy-link - Copies link to clipboard.
+         1. ph-font-your-name - Holds name of the user who creates and copies the link.
+         2. ph-a-your-link - User link in an anchor tag
+         3. ph-div-your-messages - The div that holds all new messages, in descending order.
+         4. ph-div-msg-xxxx - xxxx... - represent an ID. Holds the message sent by some other user.
+         5. btn-share-link - Copies link to clipboard.
     -->
 </head>
 <body>
@@ -134,133 +142,24 @@
         <div class="vert-layout profile">
             <div class="vert-layout">
                 <h1 class="noselect">
-                    Hi <font class="placeholder" id="ph-your-name">Sonu</font>! 👋
+                    Hi <font class="placeholder" id="ph-font-your-name">Sonu</font>! 👋
                 </h1>
                 <p class="noselect info">
-                    Copy the following link and share it with your friends.
+                    Share the following link with your friends.
                     Your friends can then send you a secret message.
                 </p>
                 <p class="noselect link">
-                    <a id="ph-your-link" href="https://sendsecretmsg.web.app/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
+                    <a id="ph-a-your-link" href="https://sendsecretmsg.web.app/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
                 </p>
-                <button class="noselect" id="btn-copy-link">Copy link</button>
+                <button class="noselect" id="btn-share-link">Share link</button>
             </div>
         </div>
         <div class="vert-layout messages-root">
             <h2 class="noselect">
                 Your Messages
             </h2>
-            <div class="vert-layout messages" id="ph-your-messages">
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 22!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 21!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 20!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 19!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 18!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 17!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 16!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 15!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 14!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 13!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 12!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 11!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 10!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 9!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 8!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 7!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 6!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 5!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 4!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 3!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 2!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
-                <p class="message placeholder" id="ph-msg-0000">
-                    Hi 1!
-                    This is another demo message!
-                    Hope you are doing well.
-                </p>
+            <div class="vert-layout messages" id="ph-div-your-messages">
+                <div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h3 style="color: #666;">You currently have no messages.</h3></div>
             </div>
         </div>
         <footer>
@@ -270,6 +169,11 @@
             </p>
         </footer>
     </div>
+    <div class="vert-layout SplashScreen noselect" id="SplashScreen-main">
+        <h1 style="visibility: hidden;">SendSecretMsg</h1>
+    </div>
+    <!-- HTML sanitizer -->
+    <script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js"></script>
     <script type="module" src="/home/script.js"></script>
 </body>
 </html>

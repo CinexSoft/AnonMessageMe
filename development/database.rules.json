@@ -1,15 +1,31 @@
 {
   "rules": {
     "preview": {
-      "$sid": {
-        ".read": "auth != null && auth.uid == $sid",
-        ".write": true
+      "messages": {
+        "$mid": {
+          ".read": true,
+          ".write": true,
+        }
+      },
+      "userdata": {
+        "$uid": {
+          ".read": true,
+          ".write": "auth != null && auth.uid == $uid"
+        }
       }
     },
     "production": {
-      "$sid": {
-        ".read": "auth != null && auth.uid == $sid",
-        ".write": true
+      "messages": {
+        "$mid": {
+          ".read": true,
+          ".write": true,
+        }
+      },
+      "userdata": {
+        "$uid": {
+          ".read": true,
+          ".write": "auth != null && auth.uid == $uid"
+        }
       }
     }
   }

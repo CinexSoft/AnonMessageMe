@@ -113,6 +113,21 @@ const main = function() {
         });
     });
 
+    // onclick event
+    document.body.onclick = (event) => {
+        console.log(event.target.className);
+        if (event.target.className.includes('del')) {
+            const pushkey = event.target.parentNode.id.replace(/ph-div-msg-/g, '');
+            console.log(pushkey);
+            FirebaseDB.set(FirebaseDB.ref(Database, getVariable('MSG_ROOT') + `/${pushkey}`), null).then(() => {
+                // nada
+            }).catch((error) => {
+                alert('An error occurred');
+                console.error(error);
+            });
+        }
+    }
+
     // Show share sheet on share button click
     ShareButton.onclick = async () => {
         try {

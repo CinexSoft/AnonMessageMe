@@ -64,6 +64,7 @@
         div.root div.messages-root {
             padding: 10px;
             width: calc(100% - 20px);
+            max-width: 1080px;
             align-items: center;
             border-radius: 0;
             color: var(--light-fgcolor);
@@ -78,8 +79,8 @@
         } 
         div.root div.messages-root div.messages div.message {
             margin: 10px auto;
-            padding: 20px;
-            width: calc(100% - 40px);
+            padding: 7px 12px 20px;
+            width: calc(100% - 22px);
             max-width: 400px;
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
@@ -92,14 +93,25 @@
             height: auto;
             border-radius: 10px;
         }
+        div.root div.messages-root div.messages div.message div.del {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: -2px;
+            right: -19px;
+            color: #666;
+            font-size: 1.5rem;
+            text-align: right;
+        }
         div.root div.messages-root div.messages div.message div.time {
             margin: 0;
             padding: 0;
             position: relative;
-            bottom: -15px;
-            right: -30px;
+            bottom: -12px;
+            right: -20px;
             color: #666;
             font-size: 0.6rem;
+            text-align: right;
         }
         #ph-div-msg-0000 {
             height: calc(60vh - 1.5rem - 50px);
@@ -112,8 +124,8 @@
                 grid-template-columns: auto auto;
             }
             div.root div.messages-root div.messages div.message {
-                width: calc(100% - 60px);
-                max-width: calc(100% - 60px);
+                width: calc(100% - 44px);
+                max-width: calc(100% - 44px);
                 margin: 10px;
             }
         }
@@ -163,7 +175,7 @@
                     Your friends can then send you a secret message.
                 </p>
                 <p class="noselect link">
-                    <a id="ph-a-your-link" href="https://sendsecretmsg.web.app/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
+                    <a id="ph-a-your-link" href="/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
                 </p>
                 <button class="noselect" id="btn-share-link">Share link</button>
             </div>

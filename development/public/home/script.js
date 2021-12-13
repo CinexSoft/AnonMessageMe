@@ -25,8 +25,9 @@ const loadMessagesToUI = function() {
     for (const key in UserMessages) {
         MessagesDiv.innerHTML = HtmlSanitizer.SanitizeHtml(
               `<div class="message placeholder" id="ph-div-msg-${key}">`
+            +     '<div class="noselect del">×</div>'
             +     CommonJS.decode(UserMessages[key].message)
-            +     '<div class="noselect time" style="text-align: right;">'
+            +     '<div class="noselect time">'
             +         CommonJS.decode(UserMessages[key].time)
             +     '</div>'
             + '</div>'
@@ -85,7 +86,7 @@ const main = function() {
         setVariable('MSG_ROOT', user.uid);
 
         // change link URL id to UID
-        LinkAnchor.href = `https://sendsecretmsg.web.app/msg?msg=true&id=${getVariable('USER_ID')}`;
+        LinkAnchor.href = `/msg?msg=true&id=${getVariable('USER_ID')}`;
 
         /* download user data from database - includes name and a message
          * also, set FirstNamePh.innerHTML to user firstname
@@ -111,6 +112,21 @@ const main = function() {
             console.error(error);
         });
     });
+
+    // onclick event
+    document.body.onclick = (event) => {
+        console.log(event.target.className);
+        if (event.target.className.includes('del')) {
+            const pushkey = event.target.parentNode.id.replace(/ph-div-msg-/g, '');
+            console.log(pushkey);
+            FirebaseDB.set(FirebaseDB.ref(Database, getVariable('MSG_ROOT') + `/${pushkey}`), null).then(() => {
+                // nada
+            }).catch((error) => {
+                alert('An error occurred');
+                console.error(error);
+            });
+        }
+    }
 
     // Show share sheet on share button click
     ShareButton.onclick = async () => {

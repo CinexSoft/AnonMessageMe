@@ -137,7 +137,7 @@ button {
     -moz-tap-highlight-color: transparent;
 }
 button:hover {
-    
+
 }
 button:active {
     background-color: var(--btn-active-bgcolor);

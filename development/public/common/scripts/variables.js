@@ -15,7 +15,7 @@ import { RTDB_USER_ROOT, RTDB_MSG_ROOT, } from '/common/scripts/fbinit.js';
  * Holds non-auth info about the user.
  * @type {Object} Stores user info from Firebase Auth.
  */
-export let UserData = {}; 
+export let UserData = {};
 
 /**
  * Holds UID.

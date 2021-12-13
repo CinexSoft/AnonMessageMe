@@ -18,11 +18,18 @@ const loadMessagesToUI = function() {
     // if UserMessages is empty, just return
     if(!UserMessages || UserMessages == {}) return;
 
+    // if there are 1 or less keys, render the placeholder div
+    if (Object.keys(UserMessages).length <= 1) {
+        MessagesDiv.innerHTML = '<div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h3 style="color: #666;">You currently have no messages.</h3></div>';
+        return;
+    }
+
     // clear the messages div
     MessagesDiv.innerHTML = '';
 
     // add the sanitized messages in HTML to the div
     for (const key in UserMessages) {
+        if (key === 'placeholder-key') continue;
         MessagesDiv.innerHTML = HtmlSanitizer.SanitizeHtml(
               `<div class="message placeholder" id="ph-div-msg-${key}">`
             +     '<div class="noselect del">×</div>'

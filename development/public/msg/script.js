@@ -102,10 +102,13 @@ const main = function() {
         // start button animation
         BtnSend.innerHTML = getButtonLoadAnim();
 
-        // upload message to db
-        FirebaseDB.update(FirebaseDB.ref(Database, getVariable('MSG_ROOT') + `/${pushkey}`), {
-            message: TxtMsg.value,
-            time: CommonJS.getLongDateTime()
+        // upload message to db, uploading a placeholder multiple times is harmless
+        FirebaseDB.update(FirebaseDB.ref(Database, getVariable('MSG_ROOT')), {
+            'placeholder-key': 'empty',
+            [pushkey]: {
+                message: TxtMsg.value,
+                time: CommonJS.getLongDateTime()
+            }
         }).then(() => {
             BtnSend.innerHTML = 'Sent!';                 // end button animation
             localStorage.setItem('sent.' + UID, 'true'); // write flag to mark that this user has sent a message already

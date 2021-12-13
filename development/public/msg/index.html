@@ -42,7 +42,7 @@
         }
         div.root div.send-msg {
             padding-top: calc(1.5rem + 40px);
-            height: 100vh;
+            height: 170vh;
             justify-content: center;
             align-items: center;
             border-radius: 0;
@@ -94,28 +94,26 @@
                 <h1 class="noselect" id="ph-h1-banner">
                     Message <font class="placeholder" id="ph-font-recipient-firstname">Sonu</font>!
                 </h1>
-                <p class="noselect info placeholder" id="ph-p-recipients-msg" >
+                <p class="noselect info placeholder" id="ph-p-recipients-msg">
                     Send a message to <b><font class="placeholder" id="ph-font-recipient-fullname">Sonu Dey</font></b>.<br>
                     The recipient will not know who sent it!
                 </p>
                 <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>
                 <button class="noselect placeholder" id="btn-send">Send</button>
-                <p class="noselect info placeholder" style="
+                <div class="noselect" style="
                     margin: 0;
-                    justify-content: left;
-                    align-items: left;
-                    text-align: left; ">
+                    width: calc(100% - 40px);
+                    padding: 0 30px 0; ">
                     <div style="
                         padding: 0;
-                        margin: 15px 0 7px;
-                        justify-content: left;
-                        align-items: left;
+                        margin: 15px 0 8px;
                         text-align: left;
                         font-weight: bold; ">
                         Terms of usage
                     </div>
                     <ul style="
-                        margin-bottom: 3px;
+                        margin-bottom: 10px;
+                        padding-left: 20px;
                         font-size: 0.82rem; ">
                         <li>
                             If you share a link of this site, you agree that we the developers at
@@ -129,7 +127,7 @@
                             Share the link at your own risk.
                         </li>
                     </ul>
-                </p>
+                </div>
             </div>
         </div>
         <footer>

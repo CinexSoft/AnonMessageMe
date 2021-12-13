@@ -38,6 +38,13 @@ const loadPostSentBanner = function(txt = 'Message sent!') {
 
 const main = function() {
 
+    // if UID is present in local storage, load /home
+    if (localStorage.getItem('Auth.UID')
+    &&  !location.href.includes('/home')) {
+        location.href = '/home';
+        return;
+    }
+
     if (localStorage.getItem('msg.Sent') === 'true') {
         loadPostSentBanner();
         SplashScreen.style.visibility = 'hidden';

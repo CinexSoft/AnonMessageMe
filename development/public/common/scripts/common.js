@@ -29,13 +29,20 @@ export const getTimeStamp = (nanosec = false) => {
 export const getLongDateTime = (long_time = true) => {
     let date_ob = new Date();
     if (!long_time) return date_ob;
-    let date = ('0' + date_ob.getDate()).slice(-2);
-    let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
-    let year = date_ob.getFullYear();
-    let hours = ('0' + date_ob.getHours()).slice(-2);
-    let minutes = ('0' + date_ob.getMinutes()).slice(-2);
-    let seconds = ('0' + date_ob.getSeconds()).slice(-2);
-    return `${Intl.DateTimeFormat().resolvedOptions().timeZone}/${year}-${month}-${date} @ ${hours}:${minutes}:${seconds}`;
+    const date = ('0' + date_ob.getDate()).slice(-2);
+    const months_array = [
+        'Jan', 'Feb', 'Mar',
+        'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep',
+        'Oct', 'Nov', 'Dec'
+    ];
+    const month = months_array[date_ob.getMonth()];
+    const year = date_ob.getFullYear();
+    const hours = ('0' + date_ob.getHours()).slice(-2);
+    const minutes = ('0' + date_ob.getMinutes()).slice(-2);
+    const seconds = ('0' + date_ob.getSeconds()).slice(-2);
+    
+    return `${hours}:${minutes} ${month} ${date}, ${year} ${Intl.DateTimeFormat().resolvedOptions().timeZone}`;
 }
 
 /**

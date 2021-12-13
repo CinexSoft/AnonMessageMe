@@ -36,7 +36,7 @@ const main = function() {
     SubmitBtn.onclick = () => {
 
         // start a loading animation in the button
-        SubmitBtn.innerHTML = getButtonLoadAnim(); return;
+        SubmitBtn.innerHTML = getButtonLoadAnim();
 
         const fullname = NameInput.value;
         const message = MessageTxt.value;

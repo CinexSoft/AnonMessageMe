@@ -26,9 +26,9 @@ const loadMessagesToUI = function() {
         MessagesDiv.innerHTML = HtmlSanitizer.SanitizeHtml(
               `<div class="message placeholder" id="ph-div-msg-${key}">`
             +     CommonJS.decode(UserMessages[key].message)
-            +     '<font class="noselect time">'
+            +     '<div class="noselect time" style="text-align: right;">'
             +         CommonJS.decode(UserMessages[key].time)
-            +     '</font>'
+            +     '</div>'
             + '</div>'
         ) + MessagesDiv.innerHTML;
     }

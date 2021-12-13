@@ -78,8 +78,8 @@
         } 
         div.root div.messages-root div.messages div.message {
             margin: 10px auto;
-            padding: 10px;
-            width: calc(100% - 20px);
+            padding: 20px;
+            width: calc(100% - 40px);
             max-width: 400px;
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
@@ -87,11 +87,19 @@
             border-radius: 10px;
             box-shadow: 0px 0px 5px 0px var(--light-shadow-color);
         }
-        div.root div.messages-root div.messages div.message font.time {
+        div.root div.messages-root div.messages div.message img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        div.root div.messages-root div.messages div.message div.time {
+            margin: 0;
+            padding: 0;
             position: relative;
-            bottom: 0;
-            right: 0;
+            bottom: -15px;
+            right: -30px;
             color: #666;
+            font-size: 0.6rem;
         }
         #ph-div-msg-0000 {
             height: calc(60vh - 1.5rem - 50px);
@@ -103,9 +111,9 @@
                 display: grid;
                 grid-template-columns: auto auto;
             }
-            div.root div.messages-root div.messages p.message {
-                width: calc(100% - 40px);
-                max-width: calc(100% - 40px);
+            div.root div.messages-root div.messages div.message {
+                width: calc(100% - 60px);
+                max-width: calc(100% - 60px);
                 margin: 10px;
             }
         }

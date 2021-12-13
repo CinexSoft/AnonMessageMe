@@ -157,12 +157,24 @@ div.SplashScreen {
     inset: 0;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--prim-fgcolor);
     background-color: var(--prim-bgcolor);
     border-radius: 0;
-    zIndex: 100;
+    z-index: 100;
+}
+div.SplashScreen div.lodingAnim {
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--tert-bgcolor);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    animation: loadspin 1s linear infinite;
 }
 div.horz-layout {
     display: flex;

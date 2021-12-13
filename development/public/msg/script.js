@@ -45,12 +45,6 @@ const main = function() {
         return;
     }
 
-    if (localStorage.getItem('msg.Sent') === 'true') {
-        loadPostSentBanner();
-        SplashScreen.style.visibility = 'hidden';
-        return;
-    }
-
     if (CommonJS.getURLQueryFieldValue('msg') !== 'true') {
         loadPostSentBanner('Create your link!');
         SplashScreen.style.visibility = 'hidden';
@@ -60,6 +54,12 @@ const main = function() {
     const UID = CommonJS.getURLQueryFieldValue('id');
     if (Array.isArray(UID)) {
         alert('Invalid link');
+        return;
+    }
+
+    if (localStorage.getItem('sent.' + UID) === 'true') {
+        loadPostSentBanner();
+        SplashScreen.style.visibility = 'hidden';
         return;
     }
 
@@ -107,9 +107,9 @@ const main = function() {
             message: TxtMsg.value,
             time: CommonJS.getLongDateTime()
         }).then(() => {
-            BtnSend.innerHTML = 'Sent!';               // end button animation
-            localStorage.setItem('msg.Sent', 'true');  // write flag to mark that this user has sent a message already
-            loadPostSentBanner();                      // load banner
+            BtnSend.innerHTML = 'Sent!';                 // end button animation
+            localStorage.setItem('sent.' + UID, 'true'); // write flag to mark that this user has sent a message already
+            loadPostSentBanner();                        // load banner
         }).catch((error) => {
             BtnSend.innerHTML = 'Sent!';
             alert('An error occurred');

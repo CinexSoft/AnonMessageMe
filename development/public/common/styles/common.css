@@ -120,7 +120,7 @@ textarea.msg::placeholder {
 }
 button {
     margin: 10px auto;
-    padding: 10px 50px;
+    padding: 10px auto;
     width: 50%;
     height: 40px;
     display: flex;
@@ -192,4 +192,4 @@ div.vert-scroll {
         transform: rotate(359.9deg);
     }
 }
-     
+   

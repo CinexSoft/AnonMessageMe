@@ -78,7 +78,7 @@
         } 
         div.root div.messages-root div.messages div.message {
             margin: 10px auto;
-            padding: 20px;
+            padding: 10px 10px 20px;
             width: calc(100% - 40px);
             max-width: 400px;
             color: var(--prim-fgcolor);
@@ -92,14 +92,25 @@
             height: auto;
             border-radius: 10px;
         }
+        div.root div.messages-root div.messages div.message div.del {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: -5px;
+            right: -20px;
+            color: #666;
+            font-size: 1.5rem;
+            text-align: right;
+        }
         div.root div.messages-root div.messages div.message div.time {
             margin: 0;
             padding: 0;
             position: relative;
-            bottom: -15px;
-            right: -30px;
+            bottom: -12px;
+            right: -20px;
             color: #666;
             font-size: 0.6rem;
+            text-align: right;
         }
         #ph-div-msg-0000 {
             height: calc(60vh - 1.5rem - 50px);

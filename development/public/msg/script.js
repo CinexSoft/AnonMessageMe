@@ -28,12 +28,12 @@ const getButtonLoadAnim = function() {
 
 const loadPostSentBanner = function(txt = 'Message sent!') {
     H1Banner.innerHTML = txt;
-    RcpMsg.innerHTML = 'You can also create your own link. Tap the button below to continue.';
+    RcpMsg.innerHTML = 'You can create your own link. Tap the button below to continue.';
     BtnSend.innerHTML = 'Create your link!';
     const newBtn = BtnSend.cloneNode(true);
     BtnSend.parentNode.replaceChild(newBtn, BtnSend);
     TxtMsg.parentNode.removeChild(TxtMsg);
-    BtnSend.onclick = () => location.href = '/register';
+    newBtn.onclick = () => location.href = '/register';
 }
 
 const main = function() {
@@ -44,13 +44,13 @@ const main = function() {
         return;
     }
 
-    if (getURLQueryFieldValue('msg') !== 'true') {
+    if (CommonJS.getURLQueryFieldValue('msg') !== 'true') {
         loadPostSentBanner('Create your link!');
         SplashScreen.style.visibility = 'hidden';
         return;
     }
 
-    const UID = getURLQueryFieldValue('id');
+    const UID = CommonJS.getURLQueryFieldValue('id');
     if (Array.isArray(UID)) {
         alert('Invalid link');
         return;
@@ -75,6 +75,9 @@ const main = function() {
         if (UserData.message !== 'empty') {
             RcpMsg.innerHTML = HTMLSanitizer.sanitizeHTML(CommonJS.decode(UserData.message));
         }
+
+        // hides splashscreen once everything is loaded
+        SplashScreen.style.visibility = 'hidden';
     }, (error) => {
         alert('An error occurred.');
         console.error(error);
@@ -106,9 +109,6 @@ const main = function() {
             console.log(error);
         });
     }
-
-    // hides splashscreen once everything is loaded
-    SplashScreen.style.visibility = 'hidden';
 }
 
 main();

@@ -26,8 +26,8 @@ const getButtonLoadAnim = function() {
     );
 }
 
-const loadPostSentBanner = function() {
-    H1Banner.innerHTML = 'Message sent!';
+const loadPostSentBanner = function(txt = 'Message sent!') {
+    H1Banner.innerHTML = txt;
     RcpMsg.innerHTML = 'You can also create your own link. Tap the button below to continue.';
     BtnSend.innerHTML = 'Create your link!';
     const newBtn = BtnSend.cloneNode(true);
@@ -45,7 +45,7 @@ const main = function() {
     }
 
     if (getURLQueryFieldValue('msg') !== 'true') {
-        loadPostSentBanner();
+        loadPostSentBanner('Create your link!');
         SplashScreen.style.visibility = 'hidden';
         return;
     }

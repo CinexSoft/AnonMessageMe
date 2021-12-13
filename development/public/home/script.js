@@ -1,27 +1,33 @@
 import { Auth, Database, FirebaseAuth, FirebaseDB, } from '/common/scripts/fbinit.js';
-import {
-    getVariable,
-    setVariable,
-} from '/common/scripts/variables.js';
+import { getVariable, setVariable, } from '/common/scripts/variables.js';
 import * as CommonJS from '/common/scripts/common.js';
 
+// holds user messages
 let UserMessages = {};
 
+// DOM nodes to interact with JS.
 const FirstNamePh = document.getElementById('ph-font-your-name');
 const LinkAnchor = document.getElementById('ph-a-your-link');
 const ShareButton = document.getElementById('btn-share-link');
 const MessagesDiv = document.getElementById('ph-div-your-messages');
 const SplashScreen = document.getElementById('SplashScreen-main');
 
+// load messages to UI
 const loadMessagesToUI = function() {
+
+    // if UserMessages is empty, just return
     if(!UserMessages || UserMessages == {}) return;
+
+    // clear the messages div
     MessagesDiv.innerHTML = '';
-    for (timestamp in UserMessages) {
-        MessagesDiv.innerHTML = (
-              `<div class="message placeholder" id="ph-div-msg-${timestamp}">`
-            +     HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages.timestamp.message))
-            +     '<font class="noselect timestamp">'
-            +         CommonJS.decode(UserMessages.timestamp.time)
+
+    // add the sanitized messages in HTML to the div
+    for (const key in UserMessages) {
+        MessagesDiv.innerHTML = HtmlSanitizer.SanitizeHtml(
+              `<div class="message placeholder" id="ph-div-msg-${key}">`
+            +     CommonJS.decode(UserMessages[key].message)
+            +     '<font class="noselect time">'
+            +         CommonJS.decode(UserMessages[key].time)
             +     '</font>'
             + '</div>'
         ) + MessagesDiv.innerHTML;
@@ -29,6 +35,8 @@ const loadMessagesToUI = function() {
 }
 
 const main = function() {
+
+    // if UID is absent in local storage, load /register
     if (!localStorage.getItem('Auth.UID')
     &&  !location.href.includes('/register')) {
         location.href = '/register';
@@ -57,7 +65,10 @@ const main = function() {
     HtmlSanitizer.AllowedCssStyles['transform'] = true;
     HtmlSanitizer.AllowedCssStyles['background'] = true;
 
+    // on authentication state changed, i.e signed in or out
     FirebaseAuth.onAuthStateChanged(Auth, (user) => {
+
+        // signed out / not signed in
         if (!user) {
             console.error('home: user not signed in');
             localStorage.removeItem('Auth.UID');
@@ -65,43 +76,52 @@ const main = function() {
             if (!location.href.includes('/register')) location.href = '/register';
             return;
         }
+
+        // signed in, store UID in local storage
         localStorage.setItem('Auth.UID', user.uid);
+
         setVariable('USER_ID', user.uid);
         setVariable('USER_ROOT', user.uid);
         setVariable('MSG_ROOT', user.uid);
+
+        // change link URL id to UID
+        LinkAnchor.href = `https://sendsecretmsg.web.app/msg?id=${getVariable('USER_ID')}`;
+
+        /* download user data from database - includes name and a message
+         * also, set FirstNamePh.innerHTML to user firstname
+         */
         FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('USER_ROOT')), (snapshot) => {
-            const data = snapshot.val();
-            setVariable('UserData', data);
-            FirstNamePh.innerHTML = CommonJS.decode(getVariable('UserData').name.firstname);
-            LinkAnchor.href = `https://sendsecretmsg.web.app/msg?id=${getVariable('USER_ID')}`;
+            setVariable('UserData', snapshot.val());
+            // sanitizes text to deactivate HTML tags
+            FirstNamePh.innerHTML = CommonJS.decode(getVariable('UserData').name.firstname).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }, (error) => {
-            alert('An error occurred. For details, see console.');
-            console.error('home: ' + error);
+            alert('An error occurred.');
+            console.error(error);
         });
-CommonJS.mark('uid = ' + getVariable('USER_ID'));
-CommonJS.mark('ud = ' + JSON.stringify(getVariable('UserData'), null, 4));
-        // load all user messages from DB
+
+        // listen for messages recieved, load them into the UI and hide the SplashScreen
         FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('MSG_ROOT')), (snapshot) => {
-            const data = snapshot.val();
-            UserMessages = data;
-            // loads user messages into UI
+            UserMessages = snapshot.val();
             loadMessagesToUI();
-            SplashScreen.style.visibility = 'hidden';
+            if (SplashScreen.style.visibility !== 'hidden') {
+                SplashScreen.style.visibility = 'hidden';
+            }
         }, (error) => {
-            alert('An error occurred. For details, see console.');
-            console.error('home: ' + error);
+            alert('An error occurred.');
+            console.error(error);
         });
     });
+
+    // Show share sheet on share button click
     ShareButton.onclick = async () => {
-        // Show share sheet
         try {
             await navigator.share({
                 title: 'Send a secret message',
-                text: `Send a message to ${CommonJS.decode(getVariable('UserData').name.fullname)} anonymously!`,
+                text: `Send a message to ${CommonJS.decode(getVariable('UserData').name.fullname)} anonymously!\n`,
                 url: LinkAnchor.href,
             });
         } catch (error) {
-            alert('An error occurred. For details, see console.');
+            if (!(error instanceof DOMException && error.code === 20)) alert('An error occurred.');
             console.error(error);
         }
     }

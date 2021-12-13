@@ -78,13 +78,13 @@ const main = function() {
                 },
                 message: CommonJS.encode(message),
             }).then(() => {
+                localStorage.setItem('Auth.UID', user.uid);
+                location.href = '/home';
                 console.log('register: uploaded data');
             }).catch((error) => {
                 alert('An error occurred. For details, see console.');
                 console.error('register: ' + error);
             });
-            localStorage.setItem('Auth.UID', user.uid);
-            location.href = '/home';
         });
     }
     SplashScreen.style.visibility = 'hidden';

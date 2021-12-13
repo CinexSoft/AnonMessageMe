@@ -42,7 +42,7 @@
         }
         div.root div.send-msg {
             padding-top: calc(1.5rem + 40px);
-            height: 100vh;
+            height: 170vh;
             justify-content: center;
             align-items: center;
             border-radius: 0;
@@ -68,6 +68,9 @@
             margin: 10px;
             font-size: 2rem;
         }
+        li {
+            margin-bottom: 7px;
+        }
     </style>
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders / buttons
@@ -91,12 +94,40 @@
                 <h1 class="noselect" id="ph-h1-banner">
                     Message <font class="placeholder" id="ph-font-recipient-firstname">Sonu</font>!
                 </h1>
-                <p class="noselect info placeholder" id="ph-p-recipients-msg" >
+                <p class="noselect info placeholder" id="ph-p-recipients-msg">
                     Send a message to <b><font class="placeholder" id="ph-font-recipient-fullname">Sonu Dey</font></b>.<br>
                     The recipient will not know who sent it!
                 </p>
                 <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>
                 <button class="noselect placeholder" id="btn-send">Send</button>
+                <div class="noselect" style="
+                    margin: 0;
+                    width: calc(100% - 40px);
+                    padding: 0 30px 0; ">
+                    <div style="
+                        padding: 0;
+                        margin: 15px 0 8px;
+                        text-align: left;
+                        font-weight: bold; ">
+                        Terms of usage
+                    </div>
+                    <ul style="
+                        margin-bottom: 10px;
+                        padding-left: 20px;
+                        font-size: 0.82rem; ">
+                        <li>
+                            If you share a link of this site, you agree that we the developers at
+                            <a target="_blank" href="https://gitHub.com/CinexSoft" style="
+                                color: var(--tert-fgcolor);
+                                font-weight: bold; ">CinexSoft</a>
+                            take no responsibility for any kind of hate speech, racist, sexist,
+                            or other triggering remarks that you receive through this anonymous messaging platform.
+                        </li>
+                        <li>
+                            Share the link at your own risk.
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <footer>

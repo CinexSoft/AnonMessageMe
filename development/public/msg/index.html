@@ -27,13 +27,13 @@
             border-radius: 0;
         }
         div.root header {
-            
+
         }
         div.root header h2 {
             font-size: 1.5rem;
         }
         div.root footer {
-            
+
         }
         div.root div.send-msg {
             padding-top: calc(1.5rem + 40px);
@@ -44,13 +44,17 @@
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
         }
-        div.root div.send-msg div {
+        div.root div.send-msg div.vert-layout {
             max-width: 360px;
             justify-content: center;
             align-items: center;
             color: var(--tert-fgcolor);
             background-color: var(--tert-bgcolor);
             box-shadow: 0px 0px 7.5px 0px var(--dark-shadow-color);
+        }
+        div.root div.send-msg div.vert-layout button {
+            width: auto;
+            min-width: 50%;
         }
         div.root div.send-msg div h1 {
             margin: 10px;
@@ -61,9 +65,10 @@
          LIST of placeholders / buttons
          1. ph-font-recipient-firstname - Holds recipient first name.
          2. ph-font-recipient-fullname - Holds recipient full name.
-         3. ph-p-recipients-msg - A message by the recipient.
-         4. ph-textarea-msg - Holds the message to be sent.
-         5. btn-send - Button to send message.
+         3. ph-h1-banner - Banner heading
+         4. ph-p-recipients-msg - A message by the recipient.
+         5. ph-textarea-msg - Holds the message to be sent.
+         6. btn-send - Button to send message.
     -->
 </head>
 <body>
@@ -75,7 +80,7 @@
         </header>
         <div class="vert-layout send-msg">
             <div class="vert-layout">
-                <h1 class="noselect">
+                <h1 class="noselect" id="ph-h1-banner">
                     Message <font class="placeholder" id="ph-font-recipient-firstname">Sonu</font>!
                 </h1>
                 <p class="noselect info placeholder" id="ph-p-recipients-msg" >

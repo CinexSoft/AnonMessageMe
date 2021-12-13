@@ -99,6 +99,7 @@ input.text {
     border-radius: 10px;
     color: var(--prim-fgcolor);
     background-color: var(--prim-bgcolor);
+    font-size: 0.9rem;
 }
 input.text::placeholder {
     color: var(--placeholder-fgcolor);
@@ -112,6 +113,7 @@ textarea.msg {
     border-radius: 10px;
     color: var(--prim-fgcolor);
     background-color: var(--prim-bgcolor);
+    font-size: 0.9rem;
 }
 textarea.msg::placeholder {
     color: var(--placeholder-fgcolor);
@@ -190,4 +192,4 @@ div.vert-scroll {
         transform: rotate(359.9deg);
     }
 }
-       
+     

@@ -35,9 +35,6 @@ const main = function() {
     // on submit button click
     SubmitBtn.onclick = () => {
 
-        // start a loading animation in the button
-        SubmitBtn.innerHTML = getButtonLoadAnim();
-
         const fullname = NameInput.value;
         const message = MessageTxt.value;
 
@@ -52,6 +49,9 @@ const main = function() {
             alert("Message can't be empty.");
             return;
         }
+
+        // start a loading animation in the button
+        SubmitBtn.innerHTML = getButtonLoadAnim();
 
         // sign use in anonymously
         FirebaseAuth.signInAnonymously(Auth).then(() => {

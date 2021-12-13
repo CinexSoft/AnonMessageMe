@@ -23,11 +23,11 @@ const loadMessagesToUI = function() {
 
     // add the sanitized messages in HTML to the div
     for (const key in UserMessages) {
-        MessagesDiv.innerHTML = (
+        MessagesDiv.innerHTML = HtmlSanitizer.SanitizeHtml(
               `<div class="message placeholder" id="ph-div-msg-${key}">`
-            +     HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages[key].message))
+            +     CommonJS.decode(UserMessages[key].message)
             +     '<font class="noselect timestamp">'
-            +         HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages[key].time))
+            +         CommonJS.decode(UserMessages[key].time)
             +     '</font>'
             + '</div>'
         ) + MessagesDiv.innerHTML;

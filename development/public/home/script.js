@@ -16,12 +16,12 @@ const SplashScreen = document.getElementById('SplashScreen-main');
 const loadMessagesToUI = function() {
     if(!UserMessages || UserMessages == {}) return;
     MessagesDiv.innerHTML = '';
-    for (timestamp in UserMessages) {
+    for (const key in UserMessages) {
         MessagesDiv.innerHTML = (
               `<div class="message placeholder" id="ph-div-msg-${timestamp}">`
-            +     HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages.timestamp.message))
+            +     HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages[key].message))
             +     '<font class="noselect timestamp">'
-            +         CommonJS.decode(UserMessages.timestamp.time)
+            +         CommonJS.decode(UserMessages[key].timestamp)
             +     '</font>'
             + '</div>'
         ) + MessagesDiv.innerHTML;

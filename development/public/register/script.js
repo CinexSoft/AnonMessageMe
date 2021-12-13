@@ -8,6 +8,21 @@ const MessageTxt = document.getElementById('ph-txt-msg');
 const SubmitBtn = document.getElementById('btn-submit');
 const SplashScreen = document.getElementById('SplashScreen-main');
 
+const getButtonLoadAnim = function() {
+    return (
+        '<div style="'
+      +     'margin: 0;'
+      +     'width: 0px;'
+      +     'height: 0px;'
+      +     'border: 2px solid var(--prim-bgcolor);'
+      +     'border-top: 2px solid transparent;'
+      +     'border-radius: 50%;'
+      +     'background-color: transparent;'
+      +     'animation: loadspin 1s linear infinite; ">'
+      + '</div>'
+    );
+}
+
 const main = function() {
 
     // if UID is present in local storage, load /home
@@ -34,6 +49,9 @@ const main = function() {
             alert("Message can't be empty.");
             return;
         }
+
+        // start a loading animation in the button
+        SubmitBtn.innerHTML = getButtonLoadAnim();
 
         // sign use in anonymously
         FirebaseAuth.signInAnonymously(Auth).then(() => {

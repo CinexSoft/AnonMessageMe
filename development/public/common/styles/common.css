@@ -119,6 +119,12 @@ textarea.msg::placeholder {
 button {
     margin: 10px auto;
     padding: 10px 50px;
+    width: 50%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     border: 0px;
     border-radius: 10px;
     color: var(--btn-fgcolor);
@@ -176,3 +182,12 @@ div.vert-scroll {
         font-size: 100%;
     }
 }
+@keyframes loadspin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359.9deg);
+    }
+}
+       

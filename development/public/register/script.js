@@ -36,7 +36,7 @@ const main = function() {
     SubmitBtn.onclick = () => {
 
         const fullname = NameInput.value;
-        const message = MessageTxt.value ? MessageTxt.value : 'Share the following link with your friends. Your friends can then send you a secret message.';
+        const message = MessageTxt.value ? MessageTxt.value : 'empty';
 
         // empty name isn't acceptable
         if (!fullname) {

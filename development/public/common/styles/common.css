@@ -137,9 +137,12 @@ button {
     -moz-tap-highlight-color: transparent;
 }
 button:hover {
-    
+
 }
 button:active {
+    background-color: var(--btn-active-bgcolor);
+}
+button:disabled {
     background-color: var(--btn-active-bgcolor);
 }
 div {
@@ -192,4 +195,3 @@ div.vert-scroll {
         transform: rotate(359.9deg);
     }
 }
-   

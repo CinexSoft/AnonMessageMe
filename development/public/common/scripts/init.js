@@ -2,7 +2,7 @@ import { Auth, Database, FirebaseAuth, FirebaseDB, } from '/common/scripts/fbini
 import { setVariable, USER_ROOT } from '/common/scripts/variables.js';
 
 const init = function() {
-    
+
 }
 
 init();

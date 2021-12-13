@@ -2,9 +2,11 @@
   "rules": {
     "preview": {
       "messages": {
-        "$mid": {
-          ".read": true,
-          ".write": true,
+        "$uid": {
+          "$key": { 
+            ".read": "auth != null && auth.uid == $uid",
+            ".write": true,
+          }
         }
       },
       "userdata": {
@@ -16,9 +18,11 @@
     },
     "production": {
       "messages": {
-        "$mid": {
-          ".read": true,
-          ".write": true,
+        "$uid": {
+          "$key": { 
+            ".read": "auth != null && auth.uid == $uid",
+            ".write": true,
+          }
         }
       },
       "userdata": {

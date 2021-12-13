@@ -142,6 +142,9 @@ button:hover {
 button:active {
     background-color: var(--btn-active-bgcolor);
 }
+button:disabled {
+    background-color: var(--btn-active-bgcolor);
+}
 div {
     padding: 10px;
     width: calc(100% - 20px);
@@ -192,4 +195,3 @@ div.vert-scroll {
         transform: rotate(359.9deg);
     }
 }
-   

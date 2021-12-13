@@ -63,6 +63,28 @@ const main = function() {
         return;
     }
 
+    // html sanitizer configuration - additional tags and attributes
+    HtmlSanitizer.AllowedTags['h'] = true;
+    HtmlSanitizer.AllowedAttributes['alt'] = true;
+    HtmlSanitizer.AllowedAttributes['id'] = true;
+    HtmlSanitizer.AllowedAttributes['class'] = true;
+    HtmlSanitizer.AllowedAttributes['download'] = true;
+    HtmlSanitizer.AllowedSchemas.push('mailto:');
+    HtmlSanitizer.AllowedCssStyles['width'] = true;
+    HtmlSanitizer.AllowedCssStyles['height'] = true;
+    HtmlSanitizer.AllowedCssStyles['min-width'] = true;
+    HtmlSanitizer.AllowedCssStyles['min-height'] = true;
+    HtmlSanitizer.AllowedCssStyles['max-width'] = true;
+    HtmlSanitizer.AllowedCssStyles['max-height'] = true;
+    HtmlSanitizer.AllowedCssStyles['padding'] = true;
+    HtmlSanitizer.AllowedCssStyles['margin'] = true;
+    HtmlSanitizer.AllowedCssStyles['border'] = true;
+    HtmlSanitizer.AllowedCssStyles['border-radius'] = true;
+    HtmlSanitizer.AllowedCssStyles['display'] = true;
+    HtmlSanitizer.AllowedCssStyles['overflow'] = true;
+    HtmlSanitizer.AllowedCssStyles['transform'] = true;
+    HtmlSanitizer.AllowedCssStyles['background'] = true;
+
     // variables based on UID
     const pushkey = FirebaseDB.push(FirebaseDB.ref(Database, UID)).key;;
     setVariable('USER_ID', UID);
@@ -80,7 +102,7 @@ const main = function() {
         RcpFirstname.innerHTML = CommonJS.decode(UserData.name.firstname).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         RcpFullname.innerHTML = CommonJS.decode(UserData.name.fullname).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         if (UserData.message !== 'empty') {
-            RcpMsg.innerHTML = HTMLSanitizer.sanitizeHTML(CommonJS.decode(UserData.message));
+            RcpMsg.innerHTML = HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserData.message));
         }
 
         // hides splashscreen once everything is loaded

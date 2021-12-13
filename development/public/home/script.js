@@ -21,13 +21,13 @@ const loadMessagesToUI = function() {
     // clear the messages div
     MessagesDiv.innerHTML = '';
 
-    // add the messages in HTML to the div
+    // add the sanitized messages in HTML to the div
     for (const key in UserMessages) {
         MessagesDiv.innerHTML = (
               `<div class="message placeholder" id="ph-div-msg-${key}">`
             +     HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages[key].message))
             +     '<font class="noselect timestamp">'
-            +         CommonJS.decode(UserMessages[key].time)
+            +         HtmlSanitizer.SanitizeHtml(CommonJS.decode(UserMessages[key].time))
             +     '</font>'
             + '</div>'
         ) + MessagesDiv.innerHTML;
@@ -92,7 +92,8 @@ const main = function() {
          */
         FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('USER_ROOT')), (snapshot) => {
             setVariable('UserData', snapshot.val());
-            FirstNamePh.innerHTML = CommonJS.decode(getVariable('UserData').name.firstname);
+            // sanitizes text to deactivate HTML tags
+            FirstNamePh.innerHTML = CommonJS.decode(getVariable('UserData').name.firstname).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }, (error) => {
             alert('An error occurred.');
             console.error(error);
@@ -116,7 +117,7 @@ const main = function() {
         try {
             await navigator.share({
                 title: 'Send a secret message',
-                text: `Send a message to ${CommonJS.decode(getVariable('UserData').name.fullname)} anonymously!`,
+                text: `Send a message to ${CommonJS.decode(getVariable('UserData').name.fullname)} anonymously!\n`,
                 url: LinkAnchor.href,
             });
         } catch (error) {

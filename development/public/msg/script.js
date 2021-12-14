@@ -75,7 +75,7 @@ const main = function() {
 
     // if msg was sent once to UID, load banner
     if (localStorage.getItem('sent.' + UID) === 'true') {
-        loadPostSentBanner('Message already sent');
+        loadPostSentBanner('Already sent');
         SplashScreen.style.visibility = 'hidden';
         return;
     }

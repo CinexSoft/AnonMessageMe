@@ -48,6 +48,7 @@ const main = function() {
     if (CommonJS.getURLQueryFieldValue('reset') === 'true') {
         localStorage.removeItem('Auth.UID');
         location.href = '/register';
+        return;
     }
 
     // if UID is absent in local storage, load /register

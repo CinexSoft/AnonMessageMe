@@ -103,7 +103,7 @@ const main = function() {
             // sanitizes text to deactivate HTML tags
             FirstNamePh.innerHTML = CommonJS.decode(getVariable('UserData').name.firstname).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }, (error) => {
-            alert('An error occurred.');
+            alert('An error occurred.\n' + error);
             console.error(error);
         });
 
@@ -115,7 +115,7 @@ const main = function() {
                 SplashScreen.style.visibility = 'hidden';
             }
         }, (error) => {
-            alert('An error occurred.');
+            alert('An error occurred.\n' + error);
             console.error(error);
         });
     });
@@ -129,7 +129,7 @@ const main = function() {
             FirebaseDB.set(FirebaseDB.ref(Database, getVariable('MSG_ROOT') + `/${pushkey}`), null).then(() => {
                 // nada
             }).catch((error) => {
-                alert('An error occurred');
+                alert('An error occurred.\n' + error);
                 console.error(error);
             });
         }

@@ -35,8 +35,8 @@ const main = function() {
     // on submit button click
     SubmitBtn.onclick = () => {
 
-        const fullname = NameInput.value;
-        const message = MessageTxt.value ? MessageTxt.value : 'empty';
+        const fullname = NameInput.value.trim();;
+        const message = MessageTxt.value ? MessageTxt.value.trim() : 'empty';
 
         // empty name isn't acceptable
         if (!fullname) {

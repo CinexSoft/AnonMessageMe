@@ -138,7 +138,7 @@ const main = function() {
         FirebaseDB.update(FirebaseDB.ref(Database, getVariable('MSG_ROOT')), {
             'placeholder-key': 'empty',
             [pushkey]: {
-                message: TxtMsg.value,
+                message: TxtMsg.value.trim(),
                 time: CommonJS.getLongDateTime()
             }
         }).then(() => {

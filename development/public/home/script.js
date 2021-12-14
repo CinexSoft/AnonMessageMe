@@ -44,6 +44,12 @@ const loadMessagesToUI = function() {
 
 const main = function() {
 
+    // allows resetting UserData of a user
+    if (CommonJS.getURLQueryFieldValue('reset') === 'true') {
+        localStorage.removeItem('Auth.UID');
+        location.href = '/register';
+    }
+
     // if UID is absent in local storage, load /register
     if (!localStorage.getItem('Auth.UID')
     &&  !location.href.includes('/msg')) {

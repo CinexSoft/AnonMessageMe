@@ -38,6 +38,12 @@ const loadPostSentBanner = function(txt = 'Message sent!') {
 
 const main = function() {
 
+    // allows resetting UserData of a user
+    if (CommonJS.getURLQueryFieldValue('reset') === 'true') {
+        localStorage.removeItem('Auth.UID');
+        location.href = '/register';
+    }
+
     // get UID from query string
     const UID = CommonJS.getURLQueryFieldValue('id');
 

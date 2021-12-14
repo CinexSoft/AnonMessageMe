@@ -40,12 +40,23 @@ const main = function() {
     // on submit button click
     SubmitBtn.onclick = () => {
 
-        const fullname = NameInput.value.trim();;
+        const fullname = NameInput.value.trim();
         const message = MessageTxt.value ? MessageTxt.value.trim() : 'empty';
+        const firstname = (function () {
+            for (const element of fullname.split(' ')) {
+                if (element) return element;
+            }
+        })();
 
         // empty name isn't acceptable
-        if (!fullname.trim()) {
-            alert("Name can't be empty.");
+        if (!fullname) {
+            alert('Name can\'t be empty.');
+            return;
+        }
+
+        // empty first name isn't acceptable
+        if (!firstname) {
+            alert('Name couldn\'t be submitted.');
             return;
         }
 
@@ -82,7 +93,7 @@ const main = function() {
             FirebaseDB.update(FirebaseDB.ref(Database, getVariable('USER_ROOT')), {
                 uid: getVariable('USER_ID'),
                 name: {
-                    firstname: CommonJS.encode((fullname + ' ').substring(0, fullname.indexOf(' '))),
+                    firstname: CommonJS.encode(firstname),
                     fullname: CommonJS.encode(fullname),
                 },
                 message: CommonJS.encode(message),

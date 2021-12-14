@@ -106,6 +106,12 @@ const main = function() {
          * also, set FirstNamePh.innerHTML to user firstname
          */
         FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('USER_ROOT')), (snapshot) => {
+            // snapshot doesn't exist
+            if (!snapshot.exists()) {
+                alert('Oops!\Your profile couldn\'t be found. You\'ll need to create a new link.');
+                location.href = '/';
+                return;
+            }
             setVariable('UserData', snapshot.val());
             // sanitizes text to deactivate HTML tags
             FirstNamePh.innerHTML = CommonJS.decode(getVariable('UserData').name.firstname).replace(/</g, '&lt;').replace(/>/g, '&gt;');

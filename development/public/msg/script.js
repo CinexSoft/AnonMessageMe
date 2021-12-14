@@ -111,6 +111,13 @@ const main = function() {
     // download recipient data
     FirebaseDB.onValue(FirebaseDB.ref(Database, getVariable('USER_ROOT')), (snapshot) => {
 
+        // snapshot doesn't exist
+        if (!snapshot.exists()) {
+            alert('Invalid URL\nURL links to a recipient who doesn\'t exist.');
+            location.href = '/';
+            return;
+        }
+
         // loads recipient from database, getVariable blocks nullish values
         setVariable('UserData', snapshot.val());
         const UserData = getVariable('UserData');

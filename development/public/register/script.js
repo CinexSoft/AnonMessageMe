@@ -25,6 +25,11 @@ const getButtonLoadAnim = function() {
 
 const main = function() {
 
+    // allows resetting UserData of a user
+    if (CommonJS.getURLQueryFieldValue('reset') === 'true') {
+        localStorage.removeItem('Auth.UID');
+    }
+
     // if UID is present in local storage, load /home
     if (localStorage.getItem('Auth.UID')
     &&  !location.href.includes('/home')) {

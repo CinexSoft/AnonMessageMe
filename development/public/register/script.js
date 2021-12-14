@@ -35,11 +35,11 @@ const main = function() {
     // on submit button click
     SubmitBtn.onclick = () => {
 
-        const fullname = NameInput.value;
-        const message = MessageTxt.value ? MessageTxt.value : 'empty';
+        const fullname = NameInput.value.trim();;
+        const message = MessageTxt.value ? MessageTxt.value.trim() : 'empty';
 
         // empty name isn't acceptable
-        if (!fullname) {
+        if (!fullname.trim()) {
             alert("Name can't be empty.");
             return;
         }
@@ -51,7 +51,7 @@ const main = function() {
         FirebaseAuth.signInAnonymously(Auth).then(() => {
             // nada
         }).catch((error) => {
-            alert('Sign In failed: ' + error);
+            alert('Sign In failed.\n' + error);
             console.error(error);
         });
 
@@ -86,7 +86,7 @@ const main = function() {
                 location.href = '/home';
                 console.log('register: uploaded data');
             }).catch((error) => {
-                alert('An error occurred.');
+                alert('An error occurred.\n' + error);
                 console.error(error);
             });
         });

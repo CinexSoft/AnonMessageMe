@@ -56,7 +56,7 @@ const main = function() {
 
     // for HTTP param pollution, alert
     if (Array.isArray(UID)) {
-        alert('Invalid link');
+        alert('Invalid URL\nURL links to more than one message recipient.');
         return;
     }
 
@@ -118,7 +118,7 @@ const main = function() {
         // hides splashscreen once everything is loaded
         SplashScreen.style.visibility = 'hidden';
     }, (error) => {
-        alert('An error occurred.');
+        alert('An error occurred.\n' + error);
         console.error(error);
     });
 
@@ -126,7 +126,7 @@ const main = function() {
     BtnSend.onclick = () => {
 
         // empty message isn't acceptable
-        if (!TxtMsg.value) {
+        if (!TxtMsg.value.trim()) {
             alert('Message can\'t be empty');
             return;
         }
@@ -138,7 +138,7 @@ const main = function() {
         FirebaseDB.update(FirebaseDB.ref(Database, getVariable('MSG_ROOT')), {
             'placeholder-key': 'empty',
             [pushkey]: {
-                message: TxtMsg.value,
+                message: TxtMsg.value.trim(),
                 time: CommonJS.getLongDateTime()
             }
         }).then(() => {
@@ -147,7 +147,7 @@ const main = function() {
             loadPostSentBanner();                        // load banner
         }).catch((error) => {
             BtnSend.innerHTML = 'Sent!';
-            alert('An error occurred');
+            alert('An error occurred.\n' + error);
             console.log(error);
         });
     }

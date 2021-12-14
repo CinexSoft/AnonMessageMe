@@ -38,28 +38,32 @@ const loadPostSentBanner = function(txt = 'Message sent!') {
 
 const main = function() {
 
-    // if UID is present in local storage, load /home
-    if (localStorage.getItem('Auth.UID')
-    &&  !location.href.includes('/home')) {
-        location.href = '/home';
-        return;
-    }
+    // get UID from query string
+    const UID = CommonJS.getURLQueryFieldValue('id');
 
-    if (CommonJS.getURLQueryFieldValue('msg') !== 'true') {
-        loadPostSentBanner('Create your link!');
+    // If UID is null, load banner
+    if (!UID) {
+        loadPostSentBanner();
         SplashScreen.style.visibility = 'hidden';
         return;
     }
 
-    const UID = CommonJS.getURLQueryFieldValue('id');
+    // for HTTP param pollution, alert
     if (Array.isArray(UID)) {
         alert('Invalid link');
         return;
     }
 
+    // if msg was sent once to UID, load banner
     if (localStorage.getItem('sent.' + UID) === 'true') {
         loadPostSentBanner();
         SplashScreen.style.visibility = 'hidden';
+        return;
+    }
+
+    // if UID is present in local storage, load /home coz u can't msg yourself
+    if (localStorage.getItem('Auth.UID') === UID) {
+        location.href = '/home';
         return;
     }
 

@@ -93,7 +93,7 @@ const main = function() {
         setVariable('MSG_ROOT', user.uid);
 
         // change link URL id to UID
-        LinkAnchor.href = `/msg?msg=true&id=${getVariable('USER_ID')}`;
+        LinkAnchor.href = `/msg?id=${getVariable('USER_ID')}`;
 
         /* download user data from database - includes name and a message
          * also, set FirstNamePh.innerHTML to user firstname

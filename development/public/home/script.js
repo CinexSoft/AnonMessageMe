@@ -46,8 +46,8 @@ const main = function() {
 
     // if UID is absent in local storage, load /register
     if (!localStorage.getItem('Auth.UID')
-    &&  !location.href.includes('/register')) {
-        location.href = '/register';
+    &&  !location.href.includes('/msg')) {
+        location.href = '/msg';
         return;
     }
 

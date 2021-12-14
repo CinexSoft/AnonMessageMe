@@ -144,7 +144,7 @@ const main = function() {
                 url: LinkAnchor.href,
             });
         } catch (error) {
-            if (!(error instanceof DOMException && error.code === 20)) alert('An error occurred.');
+            if (!(error instanceof DOMException && error.code === 20)) alert('An error occurred.\nIf you\'re using an in-app browser, it may not support the share feature implemented in this site. Please use a proper browser app.');
             console.error(error);
         }
     }

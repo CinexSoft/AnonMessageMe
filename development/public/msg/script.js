@@ -41,11 +41,17 @@ const main = function() {
     // get UID from query string
     const UID = CommonJS.getURLQueryFieldValue('id');
 
-    // If UID is null, load banner
+    // If UID is null
     if (!UID) {
-        loadPostSentBanner();
-        SplashScreen.style.visibility = 'hidden';
-        return;
+        // if signed in, goto /home
+        if (localStorage.getItem('Auth.UID')) {
+            location.href = '/home';
+            return;
+        } else {
+            loadPostSentBanner('Create your link!');
+            SplashScreen.style.visibility = 'hidden';
+            return;
+        }
     }
 
     // for HTTP param pollution, alert
@@ -54,16 +60,16 @@ const main = function() {
         return;
     }
 
-    // if msg was sent once to UID, load banner
-    if (localStorage.getItem('sent.' + UID) === 'true') {
-        loadPostSentBanner();
-        SplashScreen.style.visibility = 'hidden';
-        return;
-    }
-
     // if UID is present in local storage, load /home coz u can't msg yourself
     if (localStorage.getItem('Auth.UID') === UID) {
         location.href = '/home';
+        return;
+    }
+
+    // if msg was sent once to UID, load banner
+    if (localStorage.getItem('sent.' + UID) === 'true') {
+        loadPostSentBanner('Message already sent');
+        SplashScreen.style.visibility = 'hidden';
         return;
     }
 

@@ -57,6 +57,7 @@ div.markdown hr {
 div.markdown p {
     margin: 10px 0;
     word-wrap: break-word;
+    text-overflow: ellipsis;
 }
 div.markdown blockquote {
     margin: 10px 0;

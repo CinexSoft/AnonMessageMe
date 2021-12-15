@@ -19,14 +19,14 @@ const updateGridTemplate = function() {
     if (window.innerWidth > 460) {
         // if only 1 msg and placeholder present
         if (MESG_COUNT <= 2) {
-            MessagesDiv.style.gridTemplateColumns = 'auto';
+            MessagesDiv.style.gridTemplateColumns = '100%';
             MessagesDiv.parentNode.style.maxWidth = '460px';
         } else {
             MessagesDiv.style.gridTemplateColumns = '50% 50%';
             MessagesDiv.parentNode.style.maxWidth = '1080px';
         }
     } else {
-        MessagesDiv.style.gridTemplateColumns = 'auto';
+        MessagesDiv.style.gridTemplateColumns = '100%';
         MessagesDiv.parentNode.style.maxWidth = '1080px';
     }
 }

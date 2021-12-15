@@ -2,11 +2,20 @@ import { Auth, Database, FirebaseAuth, FirebaseDB, } from '/common/scripts/fbini
 import { getVariable, setVariable, } from '/common/scripts/variables.js';
 import * as CommonJS from '/common/scripts/common.js';
 
+// aliasing document.getElementById
+const $ID = (id) => document.getElementById(id);
+
 // DOM elements to interact with JS
-const RcpFirstname = document.getElementById('ph-font-recipient-firstname');
-const RcpFullname = document.getElementById('ph-font-recipient-fullname');
-const H1Banner = document.getElementById('ph-h1-banner');
-const RcpMsg = document.getElementById('ph-p-recipients-msg');
+const RcpFirstname = $ID('ph-font-recipient-firstname');
+const RcpFullname = $ID('ph-font-recipient-fullname');
+const H1Banner = $ID('ph-h1-banner');
+const RcpMsg = $ID('ph-p-recipients-msg');
+const MessageDivTxtCont = $ID('ph-tab-root');
+const TabsDiv = $ID('ph-div-tabs');
+const MsgTab = $ID('tab-div-message');
+const PrvTab = $ID('tab-div-preview');
+const DivMD = $ID('ph-div-markdown');
+const DivMDRoot = DivMD.parentNode;
 const TxtMsg = document.getElementById('ph-textarea-msg');
 const BtnSend = document.getElementById('btn-send');
 const SplashScreen = document.getElementById('SplashScreen-main');
@@ -32,7 +41,7 @@ const loadPostSentBanner = function(txt = 'Message sent!') {
     BtnSend.innerHTML = 'Create your link!';
     const newBtn = BtnSend.cloneNode(true);
     BtnSend.parentNode.replaceChild(newBtn, BtnSend);
-    TxtMsg.parentNode.removeChild(TxtMsg);
+    MessageDivTxtCont.parentNode.removeChild(MessageDivTxtCont);
     newBtn.onclick = () => location.href = '/register';
 }
 
@@ -64,6 +73,7 @@ const main = function() {
     // for HTTP param pollution, alert
     if (Array.isArray(UID)) {
         alert('Invalid URL\nURL links to more than one message recipient.');
+        location.href = '/';
         return;
     }
 
@@ -79,6 +89,10 @@ const main = function() {
         SplashScreen.style.visibility = 'hidden';
         return;
     }
+
+    // Markdown converter
+    const MDtoHTML = new showdown.Converter();
+    MDtoHTML.setFlavor('github');
 
     // html sanitizer configuration - additional tags and attributes
     HtmlSanitizer.AllowedTags['h'] = true;
@@ -136,11 +150,38 @@ const main = function() {
         console.error(error);
     });
 
+    // on clicking tab root, switch tabs
+    TabsDiv.onclick = (event) => {
+        if (event.target.id === 'tab-div-message') {
+            TxtMsg.style.display = 'block';
+            DivMDRoot.style.display = 'none';
+            MsgTab.style.color = 'var(--prim-fgcolor)';
+            MsgTab.style.backgroundColor = 'var(--prim-bgcolor)';
+            PrvTab.style.color = 'var(--prim-bgcolor)';
+            PrvTab.style.backgroundColor = 'var(--tert-bgcolor)';
+        }
+        else if (event.target.id === 'tab-div-preview') {
+            DivMD.innerHTML = HtmlSanitizer.SanitizeHtml(MDtoHTML.makeHtml(TxtMsg.value)).trim();
+            if (!DivMD.innerHTML) DivMD.innerHTML = '<font style="font-size:0.9rem; color:var(--placeholder-fgcolor)">Nothing to preview.</font>';
+            DivMD.innerHTML += '<br>';
+            TxtMsg.style.display = 'none';
+            DivMDRoot.style.display = 'flex';
+            DivMDRoot.style.flexDirection = 'column';
+            MsgTab.style.color = 'var(--prim-bgcolor)';
+            MsgTab.style.backgroundColor = 'var(--tert-bgcolor)';
+            PrvTab.style.color = 'var(--prim-fgcolor)';
+            PrvTab.style.backgroundColor = 'var(--prim-bgcolor)';
+        }
+    }
+
     // on send button click
     BtnSend.onclick = () => {
 
+         // html message
+         const msg = HtmlSanitizer.SanitizeHtml(MDtoHTML.makeHtml(TxtMsg.value)).trim();
+
         // empty message isn't acceptable
-        if (!TxtMsg.value.trim()) {
+        if (!msg) {
             alert('Message can\'t be empty');
             return;
         }
@@ -152,8 +193,8 @@ const main = function() {
         FirebaseDB.update(FirebaseDB.ref(Database, getVariable('MSG_ROOT')), {
             'placeholder-key': 'empty',
             [pushkey]: {
-                message: TxtMsg.value.trim(),
-                time: CommonJS.getLongDateTime()
+                message: CommonJS.encode(msg),
+                time: CommonJS.encode(CommonJS.getLongDateTime())
             }
         }).then(() => {
             BtnSend.innerHTML = 'Sent!';                 // end button animation

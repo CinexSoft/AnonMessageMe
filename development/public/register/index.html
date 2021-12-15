@@ -31,14 +31,8 @@
             align-items: center;
             border-radius: 0;
         }
-        div.root header {
-            
-        }
-        div.root header h2 {
-            font-size: 1.5rem;
-        }
         div.root footer {
-            
+
         }
         div.root div.register {
             padding-top: calc(1.5rem + 40px);
@@ -78,9 +72,9 @@
         </header>
         <div class="vert-layout register">
             <div class="vert-layout">
-                <h1 class="noselect">
+                <h2 class="noselect">
                     Create your link!
-                </h1>
+                </h2>
                 <p class="noselect info">
                     Enter your name to generate your link.<br>
                     Your friends can then anonymously message you on this site.
@@ -99,7 +93,13 @@
     </div>
     <div class="vert-layout SplashScreen noselect" id="SplashScreen-main">
         <div class="loadingAnim"></div>
-        <h1 style="margin-top: 20px; color: var(--dark-bgcolor);">Loading. Please wait...</h1>
+        <h4 style="
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            color: var(--dark-bgcolor); ">
+            Loading. Please wait...
+        </h4>
     </div>
     <script type="module" src="/register/script.js"></script>
 </body>

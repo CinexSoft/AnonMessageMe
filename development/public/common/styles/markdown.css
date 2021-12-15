@@ -1,0 +1,103 @@
+/* ----------------- MARKDOWN -----------------------
+ * elements generated from markdown,
+ * considering that they are placed in markdown class
+ */
+div.markdown {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+}
+div.markdown h1,
+div.markdown h2,
+div.markdown h3,
+div.markdown h4,
+div.markdown h5,
+div.markdown h6 {
+    margin: 10px;
+    margin-left: 0px;
+    padding: 0px;
+}
+div.markdown ul
+div.markdown ol {
+    padding: 0 2px 0;
+}
+div.markdown li {
+    margin-bottom: 4px;
+}
+div.markdown font.highlight {
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+div.markdown a {
+    color: dodgerblue;
+}
+div.markdown a:visited {
+    color: dodgerblue;
+}
+div.markdown img {
+    margin: 15px 0 15px;
+    width: 100%;
+    height: auto;
+    border: 0px;
+    border-radius: 5px;
+    display: block;
+}
+div.markdown hr {
+    color: #aaa;
+    background-color: #aaa;
+    border: 0.5px solid;
+    border-radius: 100px;
+}
+div.markdown p {
+    margin: 15px 0 15px;
+}
+div.markdown blockquote {
+    margin: 15px 0 15px;
+    width: calc(100% - 16px);
+    height: auto;
+    padding: 0 5px 0;
+    padding-right: 6px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 0.8rem;
+    border: 1px;
+    border-left: 4px solid var(--sec-bgcolor);
+    background-color: #FBDEDD;
+}
+div.markdown blockquote > p {
+    padding: 5px 0 5px;
+    width: 100%;
+}
+div.markdown p code {
+    font-family: monospace;
+    border-radius: 3px;
+    padding: 0.5px 3px 0.5px;
+    background-color: #FBDEDD;
+}
+div.markdown pre {
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 15px 0 15px;
+    font-family: monospace;
+    border-radius: 5px;
+}
+div.markdown pre code {
+    display: block;
+    margin: 0;
+    padding: 5px;
+    height: auto;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    color: #222;
+    overflow: auto;
+    font-family: monospace;
+    border: 1px;
+    border-left: 4px solid var(--sec-bgcolor);
+    background-color: #FBDEDD;
+}

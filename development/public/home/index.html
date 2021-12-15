@@ -31,14 +31,8 @@
             align-items: center;
             border-radius: 0;
         }
-        div.root header {
-            
-        }
-        div.root header h2 {
-            font-size: 1.5rem;
-        }
         div.root footer {
-            
+
         }
         div.root div.profile {
             padding-top: calc(1.5rem + 40px);
@@ -75,21 +69,20 @@
             color: var(--light-fgcolor);
             background-color: var(--light-bgcolor);
         }
-        div.root div.messages-root h2 {
+        div.root div.messages-root h1.username {
             margin: 10px;
             font-size: 1.5rem;
         }
         div.root div.messages-root div.messages {
             padding: 0;
-        } 
+        }
         div.root div.messages-root div.messages div.message {
             margin: 10px auto;
-            padding: 7px 12px 20px;
+            padding: 0 12px 7px;
             width: calc(100% - 22px);
             max-width: 400px;
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
-            white-space: pre-wrap;
             border-radius: 10px;
             box-shadow: 0px 0px 5px 0px var(--light-shadow-color);
         }
@@ -102,7 +95,8 @@
             margin: 0;
             padding: 0;
             position: relative;
-            top: -2px;
+            height: 1.5rem;
+            top: 7px;
             right: -19px;
             color: #666;
             font-size: 1.5rem;
@@ -112,7 +106,7 @@
             margin: 0;
             padding: 0;
             position: relative;
-            bottom: -12px;
+            bottom: 0px;
             right: -20px;
             color: #666;
             font-size: 0.6rem;
@@ -155,6 +149,7 @@
             visibility: visible;
         }
     </style>
+    <link rel="stylesheet" href="/common/styles/markdown.css"/>
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders
          1. ph-font-your-name - Holds name of the user who creates and copies the link.
@@ -173,14 +168,14 @@
         </header>
         <div class="vert-layout profile">
             <div class="vert-layout">
-                <h1 class="noselect">
+                <h1 class="noselect username">
                     Hi <font class="placeholder" id="ph-font-your-name">Sonu</font>! 👋
                 </h1>
                 <p class="noselect info">
                     Share the following link with your friends.
                     Your friends can then send you a secret message.
                 </p>
-                <p class="noselect link">
+                <p class="link">
                     <a target="_blank" id="ph-a-your-link" href="/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
                 </p>
                 <button class="noselect" id="btn-share-link">Share link</button>
@@ -191,7 +186,7 @@
                 Your Messages
             </h2>
             <div class="vert-layout messages" id="ph-div-your-messages">
-                <div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h3 style="color: #666;">You currently have no messages.</h3></div>
+                <div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h4 style="margin: auto; color: #666;">You currently have no messages.</h4></div>
             </div>
         </div>
         <footer>
@@ -203,7 +198,13 @@
     </div>
     <div class="vert-layout SplashScreen noselect" id="SplashScreen-main">
         <div class="loadingAnim"></div>
-        <h1 style="margin-top: 20px; color: var(--dark-bgcolor);">Loading. Please wait...</h1>
+        <h4 style="
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            color: var(--dark-bgcolor); ">
+            Loading. Please wait...
+        </h4>
     </div>
     <!-- HTML sanitizer -->
     <script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js"></script>

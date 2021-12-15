@@ -22,7 +22,6 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <title>Send Secret Message</title>
     <link rel="stylesheet" href="/common/styles/common.css"/>
-    <link rel="stylesheet" href="/common/styles/markdown.css"/>
     <style>
         div.root {
             margin: 0;
@@ -63,7 +62,7 @@
             border-bottom: 0px;
             border-radius: 10px 10px 0 0;
         }
-        div.root div.send-msg div.msg-root div.tab-root div.markdown {
+        div.root div.send-msg div.msg-root div.tab-root div.markdown-root {
             margin: 0;
             padding: 15px;
             width: calc(100% - 30px);
@@ -91,6 +90,7 @@
             margin-bottom: 7px;
         }
     </style>
+    <link rel="stylesheet" href="/common/styles/markdown.css"/>
     <!-- NOTE: placeholder IDs are used to set text to HTML nodes using JS
          LIST of placeholders / buttons
          1. ph-font-recipient-firstname - Holds recipient first name.
@@ -141,7 +141,13 @@
                         </div>
                     </div>
                     <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>
-                    <div class="markdown" id="ph-div-markdown"></div>
+                    <div class="markdown-root">
+                        <div class="markdown" id="ph-div-markdown" style="
+                            margin: 0;
+                            padding: 0;
+                            min-height: 170px; ">
+                        </div>
+                    </div>
                 </div>
                 <button class="noselect placeholder" id="btn-send">Send</button>
                 <div class="noselect" style="

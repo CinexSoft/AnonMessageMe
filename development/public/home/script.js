@@ -12,14 +12,36 @@ const ShareButton = document.getElementById('btn-share-link');
 const MessagesDiv = document.getElementById('ph-div-your-messages');
 const SplashScreen = document.getElementById('SplashScreen-main');
 
+// count of messages + 1; used to update MessagesDiv grid template
+let MESG_COUNT = 0;
+
+const updateGridTemplate = function() {
+    if (window.innerWidth > 460) {
+        // if only 1 msg and placeholder present
+        if (MESG_COUNT <= 2) {
+            MessagesDiv.style.gridTemplateColumns = 'auto';
+            MessagesDiv.parentNode.style.maxWidth = '460px';
+        } else {
+            MessagesDiv.style.gridTemplateColumns = '50% 50%';
+            MessagesDiv.parentNode.style.maxWidth = '1080px';
+        }
+    } else {
+        MessagesDiv.style.gridTemplateColumns = 'auto';
+        MessagesDiv.parentNode.style.maxWidth = '1080px';
+    }
+}
+
 // load messages to UI
 const loadMessagesToUI = function() {
 
     // if UserMessages is empty, just return
     if(!UserMessages || UserMessages == {}) return;
 
+    MESG_COUNT = Object.keys(UserMessages).length;
+    updateGridTemplate();
+
     // if there are 1 or less keys, render the placeholder div
-    if (Object.keys(UserMessages).length <= 1) {
+    if (MESG_COUNT <= 1) {
         MessagesDiv.innerHTML = '<div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h4 style="margin: auto; color: #666;">You currently have no messages.</h4></div>';
         return;
     }
@@ -137,6 +159,8 @@ const main = function() {
             console.error(error);
         });
     });
+
+    window.onresize = () => updateGridTemplate();
 
     // onclick event
     document.body.onclick = (event) => {

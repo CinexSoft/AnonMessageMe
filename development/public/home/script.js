@@ -20,7 +20,7 @@ const loadMessagesToUI = function() {
 
     // if there are 1 or less keys, render the placeholder div
     if (Object.keys(UserMessages).length <= 1) {
-        MessagesDiv.innerHTML = '<div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h3 style="color: #666;">You currently have no messages.</h3></div>';
+        MessagesDiv.innerHTML = '<div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h4 style="margin: auto; color: #666;">You currently have no messages.</h4></div>';
         return;
     }
 
@@ -33,7 +33,11 @@ const loadMessagesToUI = function() {
         MessagesDiv.innerHTML = HtmlSanitizer.SanitizeHtml(
               `<div class="message placeholder" id="ph-div-msg-${key}">`
             +     '<div class="noselect del">×</div>'
-            +     CommonJS.decode(UserMessages[key].message)
+            +     '<div class="markdown" style="'
+            +         'margin: 0;'
+            +         'padding: 0; ">'
+            +          CommonJS.decode(UserMessages[key].message)
+            +     '</div>'
             +     '<div class="noselect time">'
             +         CommonJS.decode(UserMessages[key].time)
             +     '</div>'

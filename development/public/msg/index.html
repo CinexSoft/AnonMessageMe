@@ -22,6 +22,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <title>Send Secret Message</title>
     <link rel="stylesheet" href="/common/styles/common.css"/>
+    <link rel="stylesheet" href="/common/styles/markdown.css"/>
     <style>
         div.root {
             margin: 0;
@@ -30,12 +31,6 @@
             height: 100vh;
             align-items: center;
             border-radius: 0;
-        }
-        div.root header {
-
-        }
-        div.root header h2 {
-            font-size: 1.5rem;
         }
         div.root footer {
 
@@ -49,7 +44,7 @@
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
         }
-        div.root div.send-msg div.vert-layout {
+        div.root div.send-msg div.msg-root {
             max-width: 360px;
             justify-content: center;
             align-items: center;
@@ -57,16 +52,40 @@
             background-color: var(--tert-bgcolor);
             box-shadow: 0px 0px 7.5px 0px var(--dark-shadow-color);
         }
-        div.root div.send-msg div.vert-layout textarea.msg {
-            height: 100px;
+        div.root div.send-msg div.msg-root div.tab-root div.tab div.tab-item {
+            margin: 0;
+            padding: 10px 5px;
+            padding-bottom: 8px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1.5px solid var(--prim-bgcolor);
+            border-bottom: 0px;
+            border-radius: 10px 10px 0 0;
         }
-        div.root div.send-msg div.vert-layout button {
+        div.root div.send-msg div.msg-root div.tab-root div.markdown {
+            margin: 0;
+            padding: 15px;
+            width: calc(100% - 30px);
+            height: 170px;
+            color: var(--prim-fgcolor);
+            background-color: var(--prim-bgcolor);
+            border-radius: 0 0 10px 10px;
+            display: none;
+            overflow-y: auto;
+        }
+        div.root div.send-msg div.msg-root div.tab-root textarea.msg {
+            margin: 0;
+            width: calc(100% - 30px);
+            height: 170px;
+            border-radius: 0 0 10px 10px;
+        }
+        div.root div.send-msg div.msg-root button {
             width: auto;
             min-width: 50%;
         }
-        div.root div.send-msg div h1 {
+        div.root div.send-msg div.msg-root #ph-h1-banner {
             margin: 10px;
-            font-size: 2rem;
         }
         li {
             margin-bottom: 7px;
@@ -78,8 +97,13 @@
          2. ph-font-recipient-fullname - Holds recipient full name.
          3. ph-h1-banner - Banner heading
          4. ph-p-recipients-msg - A message by the recipient.
-         5. ph-textarea-msg - Holds the message to be sent.
-         6. btn-send - Button to send message.
+         5. ph-tab-root - the div element that holds tabs and all.
+         6. ph-div-tabs - tabs container.
+         7. tab-div-message - message tab
+         8. tab-div-preview - preview tab
+         9. ph-div-markdown - markdown div
+        10. ph-textarea-msg - Holds the message to be sent.
+        11. btn-send - Button to send message.
     -->
 </head>
 <body>
@@ -90,15 +114,35 @@
             </h2>
         </header>
         <div class="vert-layout send-msg">
-            <div class="vert-layout">
-                <h1 class="noselect" id="ph-h1-banner">
+            <div class="vert-layout msg-root">
+                <h2 class="noselect" id="ph-h1-banner">
                     Message <font class="placeholder" id="ph-font-recipient-firstname">Sonu</font>!
-                </h1>
+                </h2>
                 <p class="noselect info placeholder" id="ph-p-recipients-msg">
                     Send a message to <b><font class="placeholder" id="ph-font-recipient-fullname">Sonu Dey</font></b>.<br>
                     The recipient will not know who sent it!
                 </p>
-                <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>
+                <div class="vert-layout tab-root" id="ph-tab-root" style="
+                    margin: 10px;
+                    padding: 0; ">
+                    <div class="horz-layout tab" id="ph-div-tabs" style="
+                        margin: 0;
+                        padding: 0;
+                        width: 100%; ">
+                        <div class="tab-item" id="tab-div-message" style="
+                            color: var(--prim-fgcolor);
+                            background-color: var(--prim-bgcolor); ">
+                            Markdown
+                        </div>
+                        <div class="tab-item" id="tab-div-preview" style="
+                            // color: var(--prim-fgcolor);
+                            // background-color: var(--prim-bgcolor); ">
+                            Preview
+                        </div>
+                    </div>
+                    <textarea class="msg placeholder" id="ph-textarea-msg" placeholder="Enter your message"></textarea>
+                    <div class="markdown" id="ph-div-markdown"></div>
+                </div>
                 <button class="noselect placeholder" id="btn-send">Send</button>
                 <div class="noselect" style="
                     margin: 0;
@@ -139,8 +183,16 @@
     </div>
     <div class="vert-layout SplashScreen noselect" id="SplashScreen-main">
         <div class="loadingAnim"></div>
-        <h1 style="margin-top: 20px; color: var(--dark-bgcolor);">Loading. Please wait...</h1>
+        <h4 style="
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            color: var(--dark-bgcolor); ">
+            Loading. Please wait...
+        </h4>
     </div>
+    <!-- md to html converter -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
     <!-- HTML sanitizer -->
     <script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js"></script>
     <script type="module" src="/msg/script.js"></script>

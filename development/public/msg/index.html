@@ -54,11 +54,10 @@
         div.root div.send-msg div.msg-root div.tab-root div.tab div.tab-item {
             margin: 0;
             padding: 10px 5px;
-            padding-bottom: 8px;
+            padding-bottom: 9px;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border: 1.5px solid var(--prim-bgcolor);
             border-bottom: 0px;
             border-radius: 10px 10px 0 0;
         }
@@ -69,7 +68,7 @@
             height: 170px;
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
-            border-radius: 0 0 10px 10px;
+            border-radius: 10px 0 10px 10px;
             display: none;
             overflow-y: auto;
         }
@@ -77,7 +76,7 @@
             margin: 0;
             width: calc(100% - 30px);
             height: 170px;
-            border-radius: 0 0 10px 10px;
+            border-radius: 0 10px 10px 10px;
         }
         div.root div.send-msg div.msg-root button {
             width: auto;
@@ -125,18 +124,20 @@
                 <div class="vert-layout tab-root" id="ph-tab-root" style="
                     margin: 10px;
                     padding: 0; ">
-                    <div class="horz-layout tab" id="ph-div-tabs" style="
+                    <div class="noselect horz-layout tab" id="ph-div-tabs" style="
                         margin: 0;
                         padding: 0;
                         width: 100%; ">
                         <div class="tab-item" id="tab-div-message" style="
+                            border-radius: 10px 10px 0 0;
                             color: var(--prim-fgcolor);
                             background-color: var(--prim-bgcolor); ">
                             Markdown
                         </div>
                         <div class="tab-item" id="tab-div-preview" style="
-                            // color: var(--prim-fgcolor);
-                            // background-color: var(--prim-bgcolor); ">
+                            margin-left: 10px;
+                            color: var(--prim-bgcolor);
+                            border-radius: 10px 10px 0 0; ">
                             Preview
                         </div>
                     </div>

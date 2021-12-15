@@ -3,34 +3,13 @@
  * considering that they are placed in markdown class
  */
 div.markdown {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     display: block;
     text-align: left;
     justify-content: left;
     align-items: left;
-}
-div.markdown h1 {
-    font-size: 36px;
-    line-height: 36px;
-}
-div.markdown h2 {
-    font-size: 30px;
-    line-height: 30px;
-}
-div.markdown h3 {
-    font-size: 24px;
-    line-height: 24px;
-}
-div.markdown h4 {
-    font-size: 18px;
-    line-height: 18lx;
-}
-div.markdown h5 {
-    font-size: 14px;
-    line-height: 14px;
-}
-div.markdown h6 {
-    font-size: 12px;
-    line-height: 12px;
 }
 div.markdown h1,
 div.markdown h2,
@@ -47,7 +26,7 @@ div.markdown ol {
     padding: 0 2px 0;
 }
 div.markdown li {
-    margin: 2px;
+    margin-bottom: 4px;
 }
 div.markdown font.highlight {
     border-radius: 3px;
@@ -61,7 +40,7 @@ div.markdown a:visited {
     color: dodgerblue;
 }
 div.markdown img {
-    margin: 0 0 3px;
+    margin: 15px 0 15px;
     width: 100%;
     height: auto;
     border: 0px;
@@ -75,10 +54,10 @@ div.markdown hr {
     border-radius: 100px;
 }
 div.markdown p {
-    margin: 7px 0 6px;
+    margin: 15px 0 15px;
 }
 div.markdown blockquote {
-    margin: 7px 0 7px;
+    margin: 15px 0 15px;
     width: calc(100% - 16px);
     height: auto;
     padding: 0 5px 0;
@@ -91,6 +70,7 @@ div.markdown blockquote {
     background-color: #FBDEDD;
 }
 div.markdown blockquote > p {
+    padding: 5px 0 5px;
     width: 100%;
 }
 div.markdown p code {
@@ -103,7 +83,7 @@ div.markdown pre {
     width: 100%;
     display: block;
     padding: 0;
-    margin: 7px 0 7px;
+    margin: 15px 0 15px;
     font-family: monospace;
     border-radius: 5px;
 }

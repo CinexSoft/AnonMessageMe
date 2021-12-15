@@ -32,7 +32,7 @@
             border-radius: 0;
         }
         div.root footer {
-            
+
         }
         div.root div.profile {
             padding-top: calc(1.5rem + 40px);
@@ -69,16 +69,16 @@
             color: var(--light-fgcolor);
             background-color: var(--light-bgcolor);
         }
-        div.root div.messages-root h2.username {
+        div.root div.messages-root h1.username {
             margin: 10px;
             font-size: 1.5rem;
         }
         div.root div.messages-root div.messages {
             padding: 0;
-        } 
+        }
         div.root div.messages-root div.messages div.message {
             margin: 10px auto;
-            padding: 7px 12px 20px;
+            padding: 0 12px 7px;
             width: calc(100% - 22px);
             max-width: 400px;
             color: var(--prim-fgcolor);
@@ -95,7 +95,8 @@
             margin: 0;
             padding: 0;
             position: relative;
-            top: -2px;
+            height: 1.5rem;
+            top: 7px;
             right: -19px;
             color: #666;
             font-size: 1.5rem;
@@ -105,7 +106,7 @@
             margin: 0;
             padding: 0;
             position: relative;
-            bottom: -12px;
+            bottom: 0px;
             right: -20px;
             color: #666;
             font-size: 0.6rem;
@@ -167,14 +168,14 @@
         </header>
         <div class="vert-layout profile">
             <div class="vert-layout">
-                <h2 class="noselect username">
+                <h1 class="noselect username">
                     Hi <font class="placeholder" id="ph-font-your-name">Sonu</font>! 👋
-                </h2>
+                </h1>
                 <p class="noselect info">
                     Share the following link with your friends.
                     Your friends can then send you a secret message.
                 </p>
-                <p class="noselect link">
+                <p class="link">
                     <a target="_blank" id="ph-a-your-link" href="/msg?id=39399393">https://sendsecretmsg.web.app/msg?id...</a>
                 </p>
                 <button class="noselect" id="btn-share-link">Share link</button>

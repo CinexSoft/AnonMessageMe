@@ -1,8 +1,6 @@
-*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+* {
     margin: 0;
     font-size: 99%;
-}
-* {
     font-family: "Helvetica", sans-serif;
     /* color palette taken from https://99designs.com/profiles/martislupus/designs/247401 */
     --light-fgcolor: #303030;
@@ -29,27 +27,27 @@
     outline: none;
 }
 h1 {
-    font-size: 36px;
+    font-size: 1.5rem;
     line-height: 36px;
 }
 h2 {
-    font-size: 30px;
+    font-size: 1.3rem;
     line-height: 30px;
 }
 h3 {
-    font-size: 24px;
+    font-size: 1.1rem;
     line-height: 24px;
 }
 h4 {
-    font-size: 18px;
+    font-size: 0.9rem;
     line-height: 18px;
 }
 h5 {
-    font-size: 14px;
+    font-size: 0.7rem;
     line-height: 14px;
 }
 h6 {
-    font-size: 12px;
+    font-size: 0.5rem;
     line-height: 12px;
 }
 h1, h2, h3,

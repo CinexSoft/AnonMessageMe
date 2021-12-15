@@ -157,16 +157,17 @@ const main = function() {
             DivMDRoot.style.display = 'none';
             MsgTab.style.color = 'var(--prim-fgcolor)';
             MsgTab.style.backgroundColor = 'var(--prim-bgcolor)';
-            PrvTab.style.color = 'var(--tert-fgcolor)';
+            PrvTab.style.color = 'var(--prim-bgcolor)';
             PrvTab.style.backgroundColor = 'var(--tert-bgcolor)';
         }
         else if (event.target.id === 'tab-div-preview') {
             DivMD.innerHTML = HtmlSanitizer.SanitizeHtml(MDtoHTML.makeHtml(TxtMsg.value)).trim();
             if (!DivMD.innerHTML) DivMD.innerHTML = '<font style="font-size:0.9rem; color:var(--placeholder-fgcolor)">Nothing to preview.</font>';
+            DivMD.innerHTML += '<br>';
             TxtMsg.style.display = 'none';
             DivMDRoot.style.display = 'flex';
             DivMDRoot.style.flexDirection = 'column';
-            MsgTab.style.color = 'var(--tert-fgcolor)';
+            MsgTab.style.color = 'var(--prim-bgcolor)';
             MsgTab.style.backgroundColor = 'var(--tert-bgcolor)';
             PrvTab.style.color = 'var(--prim-fgcolor)';
             PrvTab.style.backgroundColor = 'var(--prim-bgcolor)';
@@ -175,7 +176,7 @@ const main = function() {
 
     // on send button click
     BtnSend.onclick = () => {
- 
+
          // html message
          const msg = HtmlSanitizer.SanitizeHtml(MDtoHTML.makeHtml(TxtMsg.value)).trim();
 

@@ -35,8 +35,9 @@ const loadMessagesToUI = function() {
             +     '<div class="noselect del">×</div>'
             +     '<div class="markdown" style="'
             +         'margin: 0;'
-            +         'padding: 0; ">'
-            +          CommonJS.decode(UserMessages[key].message)
+            +         'padding: 0;'
+            +         'width: 100%; ">'
+            +         CommonJS.decode(UserMessages[key].message)
             +     '</div>'
             +     '<div class="noselect time">'
             +         CommonJS.decode(UserMessages[key].time)

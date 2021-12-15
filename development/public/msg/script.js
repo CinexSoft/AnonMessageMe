@@ -15,6 +15,7 @@ const TabsDiv = $ID('ph-div-tabs');
 const MsgTab = $ID('tab-div-message');
 const PrvTab = $ID('tab-div-preview');
 const DivMD = $ID('ph-div-markdown');
+const DivMDRoot = DivMD.parentNode;
 const TxtMsg = document.getElementById('ph-textarea-msg');
 const BtnSend = document.getElementById('btn-send');
 const SplashScreen = document.getElementById('SplashScreen-main');
@@ -153,7 +154,7 @@ const main = function() {
     TabsDiv.onclick = (event) => {
         if (event.target.id === 'tab-div-message') {
             TxtMsg.style.display = 'block';
-            DivMD.style.display = 'none';
+            DivMDRoot.style.display = 'none';
             MsgTab.style.color = 'var(--prim-fgcolor)';
             MsgTab.style.backgroundColor = 'var(--prim-bgcolor)';
             PrvTab.style.color = 'var(--tert-fgcolor)';
@@ -163,8 +164,8 @@ const main = function() {
             DivMD.innerHTML = HtmlSanitizer.SanitizeHtml(MDtoHTML.makeHtml(TxtMsg.value)).trim();
             if (!DivMD.innerHTML) DivMD.innerHTML = '<font style="font-size:0.9rem; color:var(--placeholder-fgcolor)">Nothing to preview.</font>';
             TxtMsg.style.display = 'none';
-            DivMD.style.display = 'flex';
-            DivMD.style.flexDirection = 'column';
+            DivMDRoot.style.display = 'flex';
+            DivMDRoot.style.flexDirection = 'column';
             MsgTab.style.color = 'var(--tert-fgcolor)';
             MsgTab.style.backgroundColor = 'var(--tert-bgcolor)';
             PrvTab.style.color = 'var(--prim-fgcolor)';

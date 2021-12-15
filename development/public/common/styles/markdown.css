@@ -21,9 +21,10 @@ div.markdown h6 {
     margin-left: 0px;
     padding: 0px;
 }
-div.markdown ul
+div.markdown ul,
 div.markdown ol {
-    padding: 0 2px 0;
+    margin: 10px 0;
+    padding: 0 20px 0;
 }
 div.markdown li {
     margin-bottom: 4px;
@@ -40,7 +41,7 @@ div.markdown a:visited {
     color: dodgerblue;
 }
 div.markdown img {
-    margin: 15px 0 15px;
+    margin: 10px 0;
     width: 100%;
     height: auto;
     border: 0px;
@@ -54,13 +55,13 @@ div.markdown hr {
     border-radius: 100px;
 }
 div.markdown p {
-    margin: 15px 0 15px;
+    margin: 10px 0;
 }
 div.markdown blockquote {
-    margin: 15px 0 15px;
+    margin: 10px 0;
     width: calc(100% - 16px);
     height: auto;
-    padding: 0 5px 0;
+    padding: 0 5px;
     padding-right: 6px;
     border-radius: 5px;
     color: #000;
@@ -83,7 +84,7 @@ div.markdown pre {
     width: 100%;
     display: block;
     padding: 0;
-    margin: 15px 0 15px;
+    margin: 10px 0;
     font-family: monospace;
     border-radius: 5px;
 }

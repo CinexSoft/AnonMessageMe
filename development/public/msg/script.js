@@ -162,7 +162,7 @@ const main = function() {
         }
         else if (event.target.id === 'tab-div-preview') {
             DivMD.innerHTML = HtmlSanitizer.SanitizeHtml(MDtoHTML.makeHtml(TxtMsg.value)).trim();
-            if (!DivMD.innerHTML) DivMD.innerHTML = '<font style="font-size:0.9rem; color:var(--placeholder-fgcolor)">Nothing to preview.</font>';
+            if (!DivMD.innerHTML) DivMD.innerHTML = '<font class="noselect" style="font-size:0.9rem; color:var(--placeholder-fgcolor)">Nothing to preview.</font>';
             DivMD.innerHTML += '<br>';
             TxtMsg.style.display = 'none';
             DivMDRoot.style.display = 'flex';

@@ -56,6 +56,11 @@ h4, h5, h6 {
     margin-left: 0px;
     padding: 0px;
 }
+.cursor-pointer {
+    -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    cursor: pointer;
+}
 .noselect {
     /* disable user text selection */
     -webkit-touch-callout: none; /* iOS Safari */

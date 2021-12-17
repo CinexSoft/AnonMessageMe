@@ -42,7 +42,16 @@ const loadMessagesToUI = function() {
 
     // if there are 1 or less keys, render the placeholder div
     if (MESG_COUNT <= 1) {
-        MessagesDiv.innerHTML = '<div class="vert-layout message placeholder noselect" id="ph-div-msg-0000"><h4 style="margin: auto; color: #666;">You currently have no messages.</h4></div>';
+        MessagesDiv.innerHTML = (
+              '<div class="vert-layout message placeholder noselect" id="ph-div-msg-0000">'
+            +     '<h4 style="'
+            +         'margin: auto;'
+            +         'color: #666;'
+            +         'text-align: center; ">'
+            +         'You currently have no messages.'
+            +     '</h4>'
+            + '</div>'
+        );
         return;
     }
 

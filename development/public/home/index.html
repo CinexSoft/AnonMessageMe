@@ -57,11 +57,13 @@
         div.root div.profile div p.link {
             margin: 10px;
             padding: 7px 10px;
+            max-width: calc(100% - 60px);
             border-radius: 10px;
             color: var(--prim-fgcolor);
             background-color: var(--prim-bgcolor);
             white-space: nowrap;
-            overflow-x: hidden;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         div.root div.messages-root {
             padding: 10px;

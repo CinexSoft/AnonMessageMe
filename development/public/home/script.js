@@ -161,10 +161,10 @@ const main = function() {
     });
 
     window.onresize = () => updateGridTemplate();
+    updateGridTemplate();
 
     // onclick event
     document.body.onclick = (event) => {
-        console.log(event.target.className);
         if (event.target.className.includes('del')) {
             const pushkey = event.target.parentNode.id.replace(/ph-div-msg-/g, '');
             console.log(pushkey);
